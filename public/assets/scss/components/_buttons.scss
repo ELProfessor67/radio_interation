@@ -1,0 +1,61 @@
+.btn {
+  font-size: rem(18px);
+  font-weight: 500;
+  font-family: $heading-font;
+  padding: rem(12px) rem(30px);
+  @include border-radius(0);
+  @include media(575px) {
+    font-size: rem(16px);
+  }
+  &.btn-md {
+    padding: rem(10px) rem(20px);
+  }
+  &.btn-sm {
+    padding: rem(8px) rem(20px);
+  }
+}
+.btn-main {
+  @extend .position-relative;
+  @extend .site-color;
+  @extend .text-white;
+  color: #222222;
+  border: none;
+  @extend .z-index-p;
+  @extend .overflow-hidden;
+  &::before,
+  &::after {
+    @extend .position-absolute;
+    content: "";
+    top: 0;
+    width: 0;
+    height: 100%;
+    @extend .site-color;
+    @extend .transition;
+    @extend .z-index-c;
+    transition-delay: 0.1s;
+  }
+  &::before {
+    right: 50%;
+  }
+  &::after {
+    left: 50%;
+  }
+  &:hover {
+    color: #222222;
+    background-color: transparent;
+    &::before,
+    &::after {
+      width: 50%;
+    }
+  }
+}
+
+.btn-rounded {
+  @include border-radius(5px);
+  @extend .overflow-hidden;
+}
+
+.white-btn {
+  background-color: #fff !important;
+  color: #222222 !important;
+}

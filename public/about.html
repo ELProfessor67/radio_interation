@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FM LAND - Online Radio HTML Template</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16">
+  <!-- bootstrap 5  -->
+  <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/remixicon.css">
+  <!-- fontawesome 5  -->
+  <link rel="stylesheet" href="assets/css/all.min.css">
+  <!-- lightcase css -->
+  <link rel="stylesheet" href="assets/css/lightcase.css">
+  <!-- slick slider css -->
+  <link rel="stylesheet" href="assets/css/lib/slick.css">
+  <!-- main css -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="preloader">
+    <div class="preloader-container">
+      <div class="preloader-icon">
+        <i class="ri-headphone-line"></i>
+        <i class="ri-radio-line"></i>
+      </div>
+      <p><span>FM</span> LAND</p>
+    </div>
+  </div>
+
+  <div class="scroll-top">
+    <a href="#"><i class="ri-arrow-up-line"></i></a>
+  </div>
+  <!-- navbar start -->
+  <nav class=" navbar main-navbar navbar-expand-xl ">
+    <div class="custom-container">
+        <a class="navbar-brand" href="/">
+            <img src="assets/images/logo-white.png" alt="site logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"
+            style="justify-content: space-between !important;">
+            <ul class=" navbar-nav site-menu m-auto  mb-2 mb-lg-0">
+                <li class="menu-item menu-item-has-children ">
+                    <a style="padding-left: 0% !important;" href="/">Home</a>
+                </li>
+                <li class="menu-item">
+                    <a href="about.html">About Us</a>
+                </li>
+                <li class="menu-item">
+                    <a href="show-schedule.html">Schedule</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="engineer.html">Engineers</a>
+                </li>
+                <li class="menu-item">
+                    <a href="album.html">Albums </a>
+                </li>
+                <li class="menu-item">
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li class="menu-item">
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li class="menu-item">
+                    <a href="guest.html">Guest</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/history">History</a>
+                </li>
+            </ul>
+
+            <a href="sponsor.html" class="btn white-btn btn-rounded">Sponsor</a>
+        </div>
+    </div>
+</nav>
+  
+  <!-- navbar end -->
+
+  <main class="site-body">
+    <!-- page banner start -->
+    <section class="inner-page-banner overflow-hidden "
+      style="background-image: url('assets/images/bg/inner-page-banner.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="single-content">
+              <h2>About US</h2>
+              <p class="text-white">Home / About US</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="bg-slider ">
+        <div class='circle xxlarge shade1'></div>
+        <div class='circle xlarge shade2'></div>
+        <div class='circle large shade3'></div>
+        <div class='circle mediun shade4'></div>
+        <div class='circle small shade5'></div>
+      </section>
+    </section>
+    <!-- page banner end -->
+
+    <!-- about section start -->
+    <section class="pt-120 pb-120 section-bg overflow-hidden position-relative z-index"
+      style="background-color: #1f2226;">
+      <div class="left-plus" style="z-index: 1;">
+        <img src="assets/images/elements/left-plus.png" alt="image">
+      </div>
+
+      <div class="container">
+        <div class="row gy-4 align-items-center justify-content-between">
+          <div class="col-lg-6">
+            <div class="about-thumb-wrapper">
+              <img src="assets/images/about/left-img.jpg" alt="image">
+              <img src="assets/images/about/about-circle.png" alt="image" class="about-thumb-circle">
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-6">
+            <div class="about-content">
+              <span class="top-title">About Us</span>
+              <h2 class="section-title">Welcome! We Are So Glad You Are Here!</h2>
+              <p>If you are searching for hope, you have come to the right place.
+                At Choice Radio, we see ourselves as a platform with a strong mandate to empower people to worship God
+                like never before.</p>
+              <span class="add-content" style="max-height: 0; overflow: hidden;">
+                Whatever the day brings, we are here to keep you company. It is our prayer that you will come with an
+                expectant heart and let the Lord minister to you. And remember to invite your family and friends, so
+                that they, too, will experience the anointing and feel the jubilance in their spirit.
+
+                It’s all about praising God together! This is also a venue to get your ministries heard throughout the
+                region and across the globe, so be sure to contact us to know more about our program schedule and how we
+                can work together. </span>
+              <a href="#" class="btn btn-main" id="see-more-button">See More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.getElementById('see-more-button').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default behavior of the link
+        var addContent = document.querySelector('.add-content');
+        var seeMoreBtn = document.getElementById('see-more-button');
+
+        if (addContent.style.maxHeight === '0px') {
+          addContent.style.maxHeight = addContent.scrollHeight + 'px';
+          seeMoreBtn.textContent = 'See Less';
+        } else {
+          addContent.style.maxHeight = '0px';
+          seeMoreBtn.textContent = 'See More';
+        }
+      });
+    </script>
+
+    <!-- about section end -->
+
+    <!-- overview section start -->
+    <section class="pt-120 pb-120 position-relative">
+      <div class="bottom-line " style="z-index: 11;">
+        <img src="assets/images/elements/bottom-line.png" alt="image">
+      </div>
+      <div class="bottom-box-shape">
+        <img src="assets/images/elements/bottom-box-shape.png" alt="image">
+      </div>
+      <div class="container">
+        <div class="row gy-4 align-items-center justify-content-between">
+          <div class="col-lg-6 order-lg-1 order-2">
+            <div class="row gy-4">
+              <div class="col-sm-6">
+                <div class="overview-item">
+                  <h4 class="overview-amount">24K+</h4>
+                  <p class="overview-caption">Listener</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="overview-item">
+                  <h4 class="overview-amount">50+</h4>
+                  <p class="overview-caption">Radio Jockey</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="overview-item">
+                  <h4 class="overview-amount">30+</h4>
+                  <p class="overview-caption">Shows</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="overview-item">
+                  <h4 class="overview-amount">20+</h4>
+                  <p class="overview-caption">Awords</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 order-lg-2 order-1">
+            <div class="overview-thumb">
+              <img src="assets/images/bg/overview.jpg" alt="image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- overview section end -->
+
+    <!-- podcast section start -->
+    <section class="dark-overlay pt-120 pb-120" style="background-image: url('assets/images/bg/podcast.jpg');">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <div class="section-top">
+              <span class="top-title">Live Show</span>
+              <h2 class="section-title">Our Podcast</h2>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div class="podcard-show-item">
+              <div class="icon">
+                <img src="assets/images/icons/podcast/1.png" alt="image">
+              </div>
+              <h5 class="podcard-show-title">Live Shows</h5>
+              <p>Dynamic performances, electrifying energy, unforgettable entertainment. Experience the magic of live
+                music in this sensational event.</p>
+              <a href="show-schedule.html" class="podcard-show-link">Explor More</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="podcard-show-item">
+              <div class="icon">
+                <img src="assets/images/icons/podcast/2.png" alt="image">
+              </div>
+              <h5 class="podcard-show-title">Previous Shows</h5>
+              <p> A retrospective journey through past performances, reliving moments of musical brilliance and
+                unforgettable entertainment.
+              </p>
+              <a href="show-schedule.html" class="podcard-show-link">Explor More</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="podcard-show-item">
+              <div class="icon">
+                <img src="assets/images/icons/podcast/3.png" alt="image">
+              </div>
+              <h5 class="podcard-show-title">Upcoming Shows</h5>
+              <p>Anticipate the thrill of future performances, promising excitement, talent, and memorable moments in
+                the making.</p>
+              <a href="show-schedule.html" class="podcard-show-link">Explor More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- podcast section end -->
+
+    <!-- music show section start -->
+    <section class="pt-120 pb-120 section-bg position-relative" style="background-color:rgba(26, 29, 34, 0.88)">
+      <div class="bottom-line " style="z-index: 11;">
+        <img src="assets/images/elements/bottom-line.png" alt="image">
+      </div>
+      <div class="container">
+
+        <div class="row gy-4 justify-content-between align-items-center">
+          <div class="col-lg-5">
+            <div class="music-single-thumb">
+              <img src="assets/images/shows/music/4.jpg" alt="image">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="music-show-content">
+              <span class="top-title">Music Show</span>
+              <h2 class="section-title">Best Radio Station In Your Frequency</h2>
+              <p>"Experience the pinnacle of radio with our top-notch station, your ultimate destination for
+                unparalleled entertainment and music."</p>
+            </div>
+            <div class="row gx-sm-5 counter-item-wrapper">
+              <div class="col-auto">
+                <div class="counter-item style-two">
+                  <h3 class="counter-amount">24K</h3>
+                  <h4 class="countrer-title">Listener</h4>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="counter-item style-two">
+                  <h3 class="counter-amount">50+</h3>
+                  <h4 class="countrer-title">Radio Jockey</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- music show section end -->
+
+    <!-- subscribe section start -->
+    <section class="subscribe-section position-relative  style-two  " style="background-color: #0a1836; ">
+      <div class="side-img  ">
+        <img src="assets/images/bg/subscribe3.jpg" alt="image" style="position: absolute;opacity: 50%;">
+        <div style="position: absolute; top: 40%; left: 35%;font-size: 25px; ">DAILY DEVOTION</div>
+        <div style="position: absolute; top: 50%; left: 35%; margin-left: 40px;">28 Mar 2024</div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div style="font-size: 26px ;">Job 37:5–7 (NIV)</div>
+            <div>"Whatever you have learned or received or heard from me, or seen in me—put it into practice."
+              Addressing the believers in Jesus at Philippi, Paul encourages them not to be anxious about anything.
+              The Greek word for anxious (merimnao) means "to be divided or distracted" in one’s thinking.
+              Paul is suggesting that believers in Christ ought not to be pulled in multiple directions—like the doubter
+              described in James 1:6–8.
+              .
+              This will guard our hearts and minds with the peace of Christ.
+              Second, the apostle encourages us to focus our attention on things that are true, pure, lovely, admirable,
+              and praiseworthy (v. 8).</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- subscribe section end -->
+
+    <div class="qt-vertical-padding-s qt-negative"
+      style="padding-top:  22px;; padding-bottom: 22px; background-color: black;">
+      <div class="qt-container" style="padding-top: 10px; width: 90%; margin: auto; ">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="qt-item">
+              <!-- SHOW UPCOMING ITEM ========================= -->
+              <div class="qt-part-archive-item qt-part-archive-item-show qt-negative">
+                <div class="qt-item-header">
+                  <a xxhref="http://radio.hallelujahgospel.com/#">
+                    <video muted autoplay loop width="100%">
+                      <source src="https://hgcradio.com/storage/app/public/ads/your_ad_here_redone_1.mp4"
+                        type="video/mp4">
+                      Sorry, your browser doesn't support embedded videos.
+                    </video>
+                  </a>
+                </div>
+              </div>
+              <!-- SHOW UPCOMING ITEM END ========================= -->
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="qt-item">
+              <!-- SHOW UPCOMING ITEM ========================= -->
+              <div class="qt-part-archive-item qt-part-archive-item-show qt-negative">
+                <div class="qt-item-header">
+                  <a xxhref="http://radio.hallelujahgospel.com/#">
+                    <video muted autoplay loop width="100%">
+                      <source src="https://hgcradio.com/storage/app/public/ads/your_ad_here_redone_2.mp4"
+                        type="video/mp4">
+                      Sorry, your browser doesn't support embedded videos.
+                    </video>
+                  </a>
+                </div>
+              </div>
+              <!-- SHOW UPCOMING ITEM END ========================= -->
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="qt-item">
+              <!-- SHOW UPCOMING ITEM ========================= -->
+              <div class="qt-part-archive-item qt-part-archive-item-show qt-negative">
+                <div class="qt-item-header">
+                  <a xxhref="http://radio.hallelujahgospel.com/#">
+                    <video muted autoplay loop width="100%">
+                      <source src="https://hgcradio.com/storage/app/public/ads/your_ad_here_redone_3.mp4"
+                        type="video/mp4">
+                      Sorry, your browser doesn't support embedded videos.
+                    </video>
+                  </a>
+                </div>
+              </div>
+              <!-- SHOW UPCOMING ITEM END ========================= -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main><!-- site-body end -->
+
+  <!-- footer section start -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row gy-5 justify-content-between">
+        <div class="col-lg-4">
+          <h5 class="" style='font-size: 1.4rem; color: #ffffff;  '>
+            Contact Us/Mail To
+          </h5>
+          <ul class="footer-info-list">
+            <li style="border-bottom: 0.6px solid rgba(255, 255, 255, 0.5); padding: 4px 0px 4px 0px;">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>Hallelujah Gospel Globally
+                231 Market Place 195 San Ramon CA, 94583, USA</p>
+            </li>
+            <li style="border-bottom: 0.6px solid rgba(255, 255, 255, 0.5); padding: 4px 0px 4px 0px;">
+              <i class="far fa-envelope"></i>
+              <p><a href="mailto:contact.FMland@gmail.com">Radio@hallelujahgospel.com</a></p>
+            </li>
+            <span class="social-icons"
+              style='padding: 13px 0px 12px 0px; border-bottom: 0.6px solid rgba(255, 255, 255, 0.5); width: 100%'>
+              <li><a href="#0"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#0"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="#0"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#0"><i class="fab fa-instagram"></i></a></li>
+            </span>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-6" style="padding-left: 29px; ">
+          <h5>Important Links</h5>
+          <ul class="footer-general-menu">
+            <li style="border-bottom: 1px solid white; width: 35%; padding: 4px 0px 4px 0px;"><i
+                class="fas fa-angle-right" style="margin-right: 6px;"></i><a href="/"><span>Home</span></a>
+            </li>
+            <li style="border-bottom: 1px solid white; width: 35%; padding: 4px 0px 4px 0px;"><i
+                class="fas fa-angle-right" style="margin-right: 6px;"></i><a href="about.html"><span>About Us</span></a>
+            </li>
+            <li style="border-bottom: 1px solid white; width: 37%; padding: 4px 0px 4px 0px;"><i
+                class="fas fa-angle-right" style="margin-right: 6px;"></i><a href="privacy.html"><span>Privacy Policy</span></a>
+            </li>
+            <li style="border-bottom: 1px solid white; width: 35%; padding: 4px 0px 4px 0px;"><i
+                class="fas fa-angle-right" style="margin-right: 6px;"></i><a href="contact.html"><span>Contact
+                  Us</span></a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-6">
+          <h5>Gospel Choice Radio
+          </h5>
+          <div style="padding-top: 19px;">Gospel Music Focus: Hallelujah Gospel Choice Radio specializes in playing
+            gospel music, which is a genre
+            that carries deep spiritual and uplifting messages. Gospel music has a unique ability to touch people's
+            hearts and inspire them with its soulful melodies and powerful lyrics<a
+              style="color: red; margin-left: 4px;" href="sponsor.html">Read More</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-copy-right-area">
+        <div class="row gy-3 align-items-center" style="justify-content: center; align-items: center;">
+          <div class="col-lg-6">
+            <p class="copy-right-text text-lg-start text-center">© Copyright <span style="color: red;">2023</span>
+              All Rights Reserved By - <span style="color: red;"> Hallelujah Gospel Globally</span> </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section end -->
+  <!-- jQuery library -->
+  <script src="assets/js/lib/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap 5 js -->
+  <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+  <!-- audio player js -->
+  <script src="assets/js/lib/maudio.js"></script>
+  <!-- slick  slider js -->
+  <script src="assets/js/lib/slick.min.js"></script>
+  <!-- wow js  -->
+  <script src="assets/js/lib/wow.min.js"></script>
+  <!-- contact js -->
+  <script src="assets/js/contact.js"></script>
+
+  <!-- main js -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

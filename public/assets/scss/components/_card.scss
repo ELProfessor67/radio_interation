@@ -1,0 +1,19 @@
+/* card css start */
+.card {
+  box-shadow: 0 3px 15px #8898aa26;
+  @extend .bg-white;
+  @extend .bs-8;
+  border: 1px solid lighten($border-color, 5%);
+  .card-header {
+    padding: rem(15px) rem(20px);
+    border-color: $border-color;
+    background-color: transparent;
+  }
+  .card-body {
+    padding: rem(20px);
+    @include media(575px) {
+      padding: rem(15px);
+    }
+  }
+}
+/* card css end */

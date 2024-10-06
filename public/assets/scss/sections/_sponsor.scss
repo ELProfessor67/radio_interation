@@ -1,0 +1,20 @@
+.sponsor-item {
+  @extend .d-flex;
+  @extend .align-center;
+  @extend .justify-center;
+  height: 65px;
+  img {
+    @extend .d-inline-block;
+  }
+}
+
+.become-sponsor-img {
+  border: 13px solid rgba(102, 252, 241, 0.31);
+  @include border-radius(30px);
+  @extend .overflow-hidden;
+  img {
+    @extend .w-100;
+    @extend .h-100;
+    @extend .obj-fit;
+  }
+}

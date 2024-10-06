@@ -1,0 +1,118 @@
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.z-index-p {
+  z-index: 1;
+}
+
+.z-index-c {
+  z-index: -1;
+}
+
+.transition {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.site-color {
+  background-color: $main-color;
+}
+
+.site-color-two {
+  background-color: $main-color-two;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.text-base {
+  color: $main-color;
+}
+
+.text-base-two {
+  color: $main-color-two;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-h {
+  color: $heading-color;
+}
+
+.text-p {
+  color: $para-color;
+}
+
+.obj-fit {
+  @include object-fit;
+}
+
+.d-flex {
+  @include d-flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.items-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-inline-flex {
+  display: inline-flex;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bs-5 {
+  @include border-radius(5px);
+}
+
+.bs-8 {
+  @include border-radius(8px);
+}
+
+.bs-10 {
+  @include border-radius(10px);
+}
+
+.bs-50 {
+  @include border-radius(50%);
+}

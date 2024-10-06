@@ -1,0 +1,39 @@
+.show-details-content {
+  .section-title {
+    margin-bottom: rem(30px);
+  }
+
+  .show-details-time {
+    margin-top: rem(30px);
+  }
+
+  .podcast-item-content {
+    margin-top: rem(70px);
+    @include media(1399px) {
+      margin-top: rem(50px);
+    }
+    @include media(991px) {
+      margin-top: rem(30px);
+    }
+  }
+}
+
+.guest-area-title {
+  margin-bottom: rem(50px);
+}
+
+.guest-item {
+  @extend .text-center;
+  .guest-thumb {
+    height: 344px;
+    img {
+      @extend .w-100;
+      @extend .h-100;
+      @extend .obj-fit;
+    }
+  }
+  .guest-name {
+    margin-top: rem(30px);
+    margin-bottom: rem(13px);
+  }
+}

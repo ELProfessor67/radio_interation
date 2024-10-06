@@ -1,0 +1,197 @@
+/* footer section css start */
+.footer-section {
+  padding-top: rem(120px);
+  padding-bottom: rem(40px);
+  @extend .section-bg;
+  overflow-x: hidden;
+  @include media(1399px) {
+    padding-top: rem(100px);
+  }
+  @include media(991px) {
+    padding-top: rem(70px);
+  }
+  @include media(575px) {
+    padding-top: rem(55px);
+  }
+  hr {
+    background-color: #d9d9d9;
+    margin: rem(30px) 0;
+  }
+  .social-links {
+    justify-content: flex-end;
+    @include media(767px) {
+      justify-content: center;
+    }
+  }
+  .footer-logo {
+    margin-bottom: rem(35px);
+    @include media(991px) {
+      margin-bottom: rem(20px);
+    }
+    img {
+      max-height: 64px;
+      @include media(991px) {
+        max-height: 55px;
+      }
+    }
+  }
+}
+
+.footer-nav {
+  .footer-menu {
+    @extend .d-flex;
+    @extend .align-center;
+    justify-content: flex-end;
+    margin: rem(-5px) rem(-15px);
+    @include media(991px) {
+      justify-content: center;
+      margin-top: rem(15px);
+    }
+    li {
+      a {
+        font-weight: 500;
+        padding: rem(5px) rem(15px);
+        @extend .text-white;
+        @extend .transition;
+        &:hover {
+          @extend .text-base;
+        }
+      }
+    }
+  }
+}
+
+.social-links {
+  @extend .d-flex;
+  @extend .align-center;
+  @extend .justify-center;
+  margin: rem(-5px) rem(-8px);
+  li {
+    padding: rem(5px) rem(8px);
+    a {
+      width: 32px;
+      height: 32px;
+      border: 1px solid $main-color;
+      @extend .text-base;
+      @extend .d-flex;
+      @extend .align-center;
+      @extend .justify-center;
+      @extend .bs-50;
+      font-size: rem(16px);
+      @extend .transition;
+      &:hover {
+        @extend .bg-main;
+        color: #0b1834;
+      }
+    }
+  }
+}
+
+.multi-home-footer {
+  background-color: #000000;
+}
+
+.subscribe-box {
+  padding: rem(80px) rem(60px);
+  @include border-radius(30px);
+  margin-top: rem(120px);
+  margin-bottom: rem(60px);
+  @extend .position-relative;
+  z-index: 2;
+  @include media(1399px) {
+    margin-top: rem(100px);
+  }
+  @include media(991px) {
+    margin-top: rem(70px);
+    padding: rem(60px) rem(40px);
+  }
+  @include media(767px) {
+    padding: rem(40px) rem(30px);
+  }
+  @include media(575px) {
+    margin-top: rem(55px);
+  }
+}
+
+.subscribe-form-two {
+  @extend .d-flex;
+  justify-content: space-between;
+  .form-control {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+    @include border-radius(20px);
+    width: calc(100% - 204px);
+    height: 70px;
+    @include media(575px) {
+      width: 100%;
+    }
+  }
+
+  .btn-main {
+    @include border-radius(20px);
+    width: 192px;
+    @include media(575px) {
+      width: 100%;
+      margin-top: rem(20px);
+      height: 70px;
+    }
+  }
+}
+
+.footer-info-list {
+  margin-top: rem(35px);
+  li + li {
+    margin-top: rem(30px);
+  }
+  li {
+    @extend .d-flex;
+    i {
+      width: 45px;
+      font-size: rem(18px);
+    }
+
+    p {
+      width: calc(100% - 45px);
+      @extend .text-white;
+      margin-top: -7px;
+      a {
+        @extend .text-white;
+      }
+    }
+  }
+}
+
+.footer-general-menu {
+  margin-top: rem(30px);
+}
+
+.footer-general-menu li + li {
+  margin-top: rem(10px);
+}
+.footer-general-menu li a {
+  color: #c0c0c0;
+  font-size: rem(18px);
+}
+
+.footer-copy-right-area {
+  margin-top: rem(30px);
+  padding: rem(30px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.copy-right-text {
+  color: #d9d9d9;
+}
+
+.social-links-two {
+  @extend .d-flex;
+  @extend .align-center;
+  margin: rem(-3px) rem(-11px);
+  li {
+    a {
+      @extend .text-white;
+      padding: rem(3px) rem(11px);
+    }
+  }
+}
+/* footer section css end */

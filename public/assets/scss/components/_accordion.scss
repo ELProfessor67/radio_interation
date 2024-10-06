@@ -1,0 +1,69 @@
+.accordion-item + .accordion-item {
+  margin-top: rem(10px);
+}
+.accordion-item {
+  border: none;
+  background-color: $body-bg;
+  border-radius: 0 !important;
+  .accordion-header {
+    .accordion-button {
+      font-size: rem(24px);
+      font-weight: 500;
+      box-shadow: none;
+      padding: rem(30px);
+      background-color: $body-bg;
+      @extend .text-h;
+      @include media(1399px) {
+        font-size: rem(22px);
+      }
+      @include media(1199px) {
+        font-size: rem(20px);
+      }
+      @include media(991px) {
+        font-size: rem(18px);
+      }
+      @include media(575px) {
+        padding: rem(20px);
+      }
+      &:after {
+        content: "\f078";
+        background-image: none;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: rem(16px);
+      }
+      &:not(.collapsed) {
+        @extend .text-h;
+        background-color: $body-bg;
+      }
+    }
+  }
+  .accordion-body {
+    padding: 0 rem(30px) rem(30px) rem(30px);
+    color: #fff;
+    @include media(575px) {
+      padding: 0 rem(20px) rem(20px) rem(20px);
+    }
+  }
+}
+
+.accordion {
+  &.style-two {
+    .accordion-item {
+      @include border-radius(10px !important);
+      background: #28344c;
+      .accordion-header {
+        .accordion-button {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+.faq-thumb {
+  &.style-two {
+    @include border-radius(30px);
+    overflow: hidden;
+  }
+}

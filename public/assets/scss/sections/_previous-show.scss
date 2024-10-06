@@ -1,0 +1,206 @@
+.previous-show-section {
+  @extend .position-relative;
+  @extend .z-index-p;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &::before {
+    @extend .position-absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    @extend .w-100;
+    @extend .h-100;
+    @extend .z-index-c;
+    background-color: rgba(7, 17, 38, 0.6);
+  }
+}
+
+.show-item {
+  @extend .position-relative;
+  height: 300px;
+  @extend .overflow-hidden;
+  &:hover {
+    > img {
+      @include transform(scale(1.15, 1.15));
+    }
+  }
+  &::before {
+    @extend .position-absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    @extend .w-100;
+    @extend .h-100;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.705589) 66.3%,
+      #000000 100%
+    );
+    z-index: 1;
+  }
+  > img {
+    @extend .w-100;
+    @extend .h-100;
+    @extend .obj-fit;
+    @extend .transition;
+  }
+  &-content {
+    @extend .position-absolute;
+    bottom: 0;
+    left: 0;
+    padding: rem(30px);
+    @extend .d-flex;
+    @extend .align-center;
+    z-index: 2;
+    @include media(1199px) {
+      padding: rem(15px);
+    }
+    .artist-thumb {
+      width: 60px;
+      height: 60px;
+      @extend .overflow-hidden;
+      img {
+        @extend .w-100;
+        @extend .h-100;
+        @extend .obj-fit;
+      }
+    }
+    .artist-content {
+      width: calc(100% - 60px);
+      padding-left: rem(18px);
+      .show-name {
+        font-weight: 500;
+        font-size: rem(18px);
+      }
+      .artist-name {
+        font-size: rem(16px);
+        margin-top: rem(10px);
+      }
+    }
+  }
+  &.style-two {
+    height: auto;
+    @extend .position-relative;
+    &:hover {
+      .thumb {
+        img {
+          @include transform(scale(1.15, 1.15));
+        }
+      }
+    }
+    &::before {
+      display: none;
+    }
+    .thumb {
+      height: 300px;
+      @extend .overflow-hidden;
+      img {
+        @extend .w-100;
+        @extend .h-100;
+        @extend .obj-fit;
+        @extend .transition;
+      }
+    }
+    .show-item-content {
+      position: static;
+      padding: rem(30px);
+      background-color: $body-bg;
+      .show-item-top {
+        @extend .d-flex;
+        @extend .w-100;
+        justify-content: space-between;
+        margin-bottom: rem(40px);
+        &-title {
+          font-weight: 500;
+        }
+        .show-item-duration {
+          @extend .text-base;
+          font-size: rem(16px);
+        }
+      }
+    }
+    .maudio {
+      &.playing {
+        .audio-control {
+          .play {
+            &::before {
+              background-image: url("../images/icons/pause.svg");
+            }
+          }
+        }
+      }
+    }
+    .audio-control {
+      @extend .position-absolute;
+      top: 110px;
+      left: 0;
+      height: 75px;
+      @extend .w-100;
+      @extend .text-center;
+
+      .play {
+        @extend .position-relative;
+        width: 73px;
+        height: 73px;
+        border: 5px solid #fff;
+        color: #fff;
+        @extend .bs-50;
+        @extend .d-inline-flex;
+        &::before {
+          @extend .position-absolute;
+          content: "";
+          top: 52%;
+          left: 52%;
+          width: 28px;
+          height: 36px;
+          background-size: 28px 36px;
+          background-image: url("../images/icons/play.svg");
+          @include transform(translate(-50%, -50%));
+        }
+      }
+
+      .fast-reverse,
+      .fast-forward,
+      .time-keep,
+      .mute,
+      .volume-bar,
+      .progress-bar {
+        display: none;
+      }
+    }
+  }
+}
+
+.previous-show-slider {
+  padding-bottom: 90px;
+  @include media(991px) {
+    padding-bottom: rem(50px);
+  }
+  .slick-list {
+    margin: 0 -12px;
+  }
+  .single-slide {
+    padding: 0 12px;
+  }
+  .slick-arrow {
+    @extend .position-absolute;
+    bottom: 0;
+    width: 28px;
+    height: 28px;
+    @extend .bg-main;
+    color: #000000;
+    @extend .d-flex;
+    @extend .align-center;
+    @extend .justify-center;
+    z-index: 1;
+    &.prev {
+      left: 50%;
+      margin-left: -40px;
+    }
+    &.next {
+      right: 50%;
+      margin-right: -40px;
+    }
+  }
+}

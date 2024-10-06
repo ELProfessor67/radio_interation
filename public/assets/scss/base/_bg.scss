@@ -1,0 +1,10 @@
+/* background color css start */
+$colors: "primary" $primary, "secondary" $secondary, "success" $success, "danger" $danger, "warning" $warning, "info" $info, "light" $light, "dark" $dark, "muted" $muted , "main" $main-color;
+
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+}
+/* background color css end */

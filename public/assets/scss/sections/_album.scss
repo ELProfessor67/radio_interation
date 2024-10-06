@@ -1,0 +1,58 @@
+.albam-item {
+  &:hover {
+    .albam-item-thumb {
+      .albam-item-ring-img {
+        animation: spin2 7000ms infinite linear;
+      }
+    }
+  }
+  &-thumb {
+    padding-right: rem(129px);
+    @extend .position-relative;
+    @include media(1199px) {
+      padding-right: rem(80px);
+    }
+    .albam-item-main-img {
+      @include border-radius(30px);
+    }
+    .albam-item-ring-img {
+      @extend .position-absolute;
+      bottom: -27px;
+      right: -37px;
+      width: 370px;
+      @include media(1399px) {
+        width: 290px;
+      }
+      @include media(1199px) {
+        width: 250px;
+      }
+      @include media(575px) {
+        width: 350px;
+        right: 0;
+      }
+      @include media(420px) {
+        width: 300px;
+      }
+      @include media(360px) {
+        width: 270px;
+      }
+    }
+  }
+  &-content {
+    margin-top: rem(30px);
+  }
+  .albam-item-link {
+    @extend .text-base;
+    margin-top: rem(20px);
+    i {
+      margin-left: 6px;
+    }
+  }
+}
+
+.multi-top-dots {
+  @extend .position-absolute;
+  top: 115px;
+  right: 0;
+  @extend .z-index-c;
+}

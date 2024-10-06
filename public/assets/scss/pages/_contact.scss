@@ -1,0 +1,141 @@
+.contact-item {
+  padding: rem(30px);
+  background-color: $body-bg;
+  @extend .h-100;
+  @include media(575px) {
+    padding: rem(20px);
+  }
+  .top {
+    @extend .d-flex;
+    @extend .align-center;
+    .icon {
+      width: 100px;
+      height: 100px;
+      @extend .d-flex;
+      @extend .items-center;
+      background-color: #28344c;
+      @include media(575px) {
+        width: 55px;
+        height: 55px;
+      }
+      img {
+        @include media(575px) {
+          max-width: 30px;
+        }
+      }
+      i {
+        @extend .text-base;
+        font-size: rem(56px);
+        @include media(575px) {
+          font-size: rem(36px);
+        }
+      }
+    }
+    .title {
+      width: calc(100% - 100px);
+      padding-left: rem(30px);
+      @include media(575px) {
+        width: calc(100% - 55px);
+        padding-left: rem(20px);
+      }
+    }
+  }
+  .contact-item-list {
+    margin-top: rem(30px);
+  }
+  &.style-two {
+    background: rgba(40, 52, 76, 0.64);
+    backdrop-filter: blur(9px);
+    border-radius: 30px;
+    text-align: center;
+    .top {
+      display: block;
+      .icon {
+        width: 60px;
+        height: 60px;
+        background: #0b1834;
+        @include border-radius(10px);
+        margin-left: auto;
+        margin-right: auto;
+        img {
+          max-height: 30px;
+        }
+      }
+      .title {
+        width: 100%;
+        padding-left: 0;
+        margin-top: rem(15px);
+      }
+    }
+    .contact-item-list {
+      li + li {
+        margin-top: rem(8px);
+      }
+      li {
+        word-break: break-all;
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.contact-item-list {
+  li + li {
+    margin-top: rem(18px);
+  }
+  li {
+    @extend .position-relative;
+    padding-left: rem(20px);
+    &::before {
+      @extend .position-absolute;
+      content: "\f111";
+      top: 13px;
+      left: 0;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: rem(4px);
+      color: #fff;
+    }
+  }
+}
+
+.contact-form {
+  &.style-two {
+    .form-control {
+      @include border-radius(10px);
+    }
+  }
+}
+
+.contact-map {
+  iframe {
+    @extend .w-100;
+    height: 520px;
+    @include media(767px) {
+      height: 450px;
+    }
+    @include media(575px) {
+      height: 320px;
+    }
+  }
+  &.style-two {
+    @extend .position-absolute;
+    top: 0;
+    right: 0;
+    width: 37%;
+    height: 100%;
+    @include media(991px) {
+      position: static;
+      height: 450px;
+      width: 100%;
+    }
+    @include media(575px) {
+      height: 320px;
+    }
+    iframe {
+      height: 100%;
+    }
+  }
+}

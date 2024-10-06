@@ -1,0 +1,106 @@
+.show-tabs {
+  background-color: #28344c;
+  border-bottom: none;
+  padding: rem(20px) 0;
+  @include media(767px) {
+    background-color: transparent;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: rem(-10px);
+  }
+  .nav-item {
+    width: calc(100% / 7);
+    @extend .position-relative;
+    @include media(767px) {
+      width: calc((100% / 2) - 10px);
+      background-color: #28344c;
+      padding: rem(4px) rem(8px);
+      margin-bottom: 10px;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      @extend .position-absolute;
+      content: "";
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 22px;
+      background-color: rgba(#fff, 0.24);
+      margin-top: -11px;
+      @include media(767px) {
+        display: none;
+      }
+    }
+    .nav-link {
+      @extend .text-white;
+      font-size: rem(18px);
+      font-weight: 400;
+      @extend .d-block;
+      @extend .text-center;
+      border: none;
+      padding: rem(10px);
+      @extend .w-100;
+      @include media(991px) {
+        font-size: rem(16px);
+      }
+      &.active {
+        background-color: transparent;
+        @extend .text-base;
+      }
+    }
+  }
+}
+
+.show-tabs-two {
+  display: block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  @include media(991px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: rem(30px);
+  }
+  .nav-item + .nav-item {
+    margin-top: rem(20px);
+    @include media(991px) {
+      margin-top: 0;
+    }
+  }
+  .nav-item {
+    @extend .w-100;
+    @include media(991px) {
+      width: calc((100% / 2) - 5px);
+      margin-bottom: rem(10px);
+    }
+    .nav-link {
+      display: block;
+      padding: rem(15px) rem(30px);
+      @extend .w-100;
+      @include border-radius(0);
+      @extend .text-white;
+      background-color: #28344c;
+      border: none;
+      @include media(575px) {
+        font-size: rem(14px);
+      }
+      &.active {
+        @extend .text-base;
+      }
+    }
+  }
+}
+
+.tab-content > .tab-pane {
+  display: block;
+  height: 0px;
+  overflow: hidden;
+}
+.tab-content > .active {
+  height: auto;
+}

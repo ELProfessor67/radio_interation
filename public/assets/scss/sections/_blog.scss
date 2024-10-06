@@ -1,0 +1,116 @@
+.section-bg {
+  .blog-item {
+    .blog-content {
+      padding: rem(25px);
+      background-color: $body-bg;
+    }
+  }
+}
+.blog-item {
+  &:hover {
+    .blog-thumb {
+      img {
+        @include transform(scale(1.15, 1.15));
+      }
+    }
+  }
+  .blog-thumb {
+    height: 180px;
+    @extend .overflow-hidden;
+    img {
+      @extend .w-100;
+      @extend .h-100;
+      @extend .obj-fit;
+      @extend .transition;
+    }
+  }
+  .blog-content {
+    padding: rem(25px);
+    background-color: $card-bg;
+  }
+  .blog-title {
+    font-size: rem(24px);
+    font-weight: 500;
+    margin-top: rem(15px);
+    @include media(1199px) {
+      font-size: rem(22px);
+    }
+  }
+  .blog-btn {
+    @extend .text-base;
+    font-weight: 400;
+    margin-top: rem(25px);
+  }
+  &.style-two {
+    padding: rem(30px);
+    background-color: #28344c;
+    @include media(1199px) {
+      padding: rem(20px);
+    }
+    .blog-thumb {
+      height: 225px;
+    }
+    .blog-content {
+      padding: 0;
+      padding-top: rem(30px);
+    }
+  }
+  &.style-three {
+    @include border-radius(20px);
+    background-color: #28344c;
+    padding: rem(20px);
+    .blog-thumb {
+      height: 222px;
+      @extend .overflow-hidden;
+      @include border-radius(30px);
+    }
+    .blog-content {
+      padding: rem(20px) 0 0 0;
+    }
+  }
+}
+
+.multi-section-bg {
+  .blog-item {
+    &.style-three {
+      background-color: #0b1834;
+      .blog-content {
+        background-color: #0b1834;
+      }
+    }
+  }
+}
+
+.blog-meta {
+  @extend .d-flex;
+  margin: rem(-3px) rem(-10px);
+  .single-meta {
+    @extend .position-relative;
+    font-size: rem(16px);
+    @extend .text-white;
+    padding: rem(3px) rem(10px);
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      @extend .position-absolute;
+      content: "";
+      top: 50%;
+      right: -2.5px;
+      width: 5px;
+      height: 5px;
+      margin-top: -2.5px;
+      @extend .bg-white;
+      @extend .bs-50;
+    }
+  }
+}
+
+.multi-blog-dots {
+  @extend .position-absolute;
+  top: 200px;
+  left: 0;
+  @extend .z-index-c;
+}

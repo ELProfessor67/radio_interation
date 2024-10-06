@@ -1,0 +1,135 @@
+.station-item {
+  padding: rem(30px);
+  @include border-radius(50px);
+  @extend .text-center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  @extend .transition;
+  &:hover {
+    background-color: #28344c;
+    border-color: transparent;
+    .station-item-icon {
+      @extend .site-color;
+    }
+  }
+  .station-item-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #28344c;
+    @include border-radius(15px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: rem(20px);
+    @extend .transition;
+  }
+  .station-item-title {
+    margin-bottom: rem(10px);
+  }
+  p {
+    margin-bottom: rem(30px);
+  }
+  a {
+    @extend .text-base;
+    i {
+      margin-left: rem(5px);
+    }
+  }
+}
+
+.station-item-two {
+  padding: rem(30px);
+  background-color: #28344c;
+  @include border-radius(30px);
+  @extend .d-flex;
+  &:hover {
+    .thumb {
+      img {
+        @include transform(scale(1.15, 1.15));
+      }
+    }
+    .station-name h5 {
+      @extend .text-base;
+    }
+  }
+  .thumb {
+    width: 120px;
+    @include border-radius(20px);
+    @extend .overflow-hidden;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+    img {
+      @extend .obj-fit;
+      @extend .w-100;
+      @extend .h-100;
+      @extend .transition;
+    }
+  }
+  .content {
+    width: calc(100% - 120px);
+    padding-left: rem(20px);
+    @include media(460px) {
+      width: 100%;
+      padding-left: 0;
+      margin-top: rem(20px);
+    }
+  }
+  .station-top {
+    @extend .d-flex;
+    @extend .align-center;
+    .icon {
+      width: 70px;
+      height: 70px;
+      background-color: #0b1834;
+      @include border-radius(15px);
+      @extend .d-flex;
+      @extend .items-center;
+    }
+    .station-name {
+      width: calc(100% - 70px);
+      padding-left: rem(20px);
+    }
+  }
+}
+
+.popular-show-slider {
+  .station-item-two {
+    .station-top {
+      .station-name {
+        @include media(1399px) {
+          width: 100%;
+          padding-left: 0;
+          margin-top: rem(15px);
+        }
+      }
+    }
+  }
+}
+
+.multi-radio-station-slider {
+  padding-bottom: rem(60px);
+  .slick-list {
+    margin: rem(-30px) rem(-12px);
+  }
+  .single-slide {
+    padding: rem(30px) rem(12px);
+  }
+  .slick-arrow {
+    @extend .position-absolute;
+    bottom: 0;
+    width: 28px;
+    height: 28px;
+    @extend .bg-main;
+    color: #000000;
+    @extend .d-flex;
+    @extend .align-center;
+    @extend .justify-center;
+    @extend .bs-5;
+    &.prev {
+      left: 50%;
+      margin-left: -40px;
+    }
+    &.next {
+      right: 50%;
+      margin-right: -40px;
+    }
+  }
+}

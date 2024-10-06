@@ -1,0 +1,342 @@
+.home-red {
+  background-color: #1a1d22;
+  .main-navbar::before {
+    display: none;
+  }
+
+  .navbar-collapse {
+    @include media(1199px) {
+      padding: rem(15px);
+      background-color: $section-bg;
+    }
+  }
+
+  .footer-section {
+    background-color: #000000 !important;
+    padding-bottom: 0;
+    .footer-general-menu,
+    .social-links-two {
+      li {
+        a {
+          &:hover {
+            color: $main-color-three;
+          }
+        }
+      }
+    }
+  }
+
+  .scroll-top {
+    background-color: $main-color-three;
+    color: #fff;
+  }
+
+  .banner-section {
+    padding-top: rem(400px);
+    padding-bottom: 0;
+    @include media(1399px) {
+      padding-top: rem(240px);
+    }
+    @include media(1199px) {
+      padding-top: rem(150px);
+    }
+    .single-audio-player {
+      margin-top: 0;
+      @extend .align-center;
+      .single-audio-thumb {
+        width: 100px;
+        height: 100px;
+        @extend .overflow-hidden;
+        @extend .bs-50;
+        img {
+          @extend .w-100;
+          @extend .h-100;
+          @extend .obj-fit;
+        }
+      }
+      .single-audio-content-top {
+        width: 220px;
+        padding-left: rem(30px);
+        padding-right: rem(15px);
+        @include media(767px) {
+          width: calc(100% - 100px);
+          padding-right: 0;
+        }
+        .title {
+          font-size: rem(18px);
+          font-weight: 500;
+        }
+        .audio-time {
+          font-size: rem(16px);
+        }
+      }
+      .single-audio-content {
+        width: calc(100% - 320px);
+        @include media(767px) {
+          width: 100%;
+          margin-top: rem(10px);
+        }
+      }
+    }
+
+    .single-audio-player.style-two
+      div.maudio
+      .audio-control
+      a.fast-reverse::after,
+    .single-audio-player.style-two
+      div.maudio
+      .audio-control
+      a.fast-forward::after {
+      width: 36px;
+      height: 21px;
+      background-size: 36px 21px;
+      @include media(575px) {
+        width: 22px;
+        height: 14px;
+        background-size: 22px 14px;
+      }
+    }
+    .single-audio-player.style-two div.maudio .audio-control a.play::after {
+      width: 21px;
+      height: 23px;
+      background-size: 21px 23px;
+      @include media(575px) {
+        width: 15px;
+        height: 17px;
+        background-size: 15px 17px;
+      }
+    }
+    .single-audio-player div.maudio .audio-control a.play {
+      margin-left: 10px;
+      margin-right: 10px;
+      @include media(575px) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    .single-audio-player div.maudio .audio-control .progress-bar {
+      height: 5px;
+    }
+  }
+
+  .banner-bottom-player {
+    margin-top: rem(220px);
+    padding: rem(15px) 0;
+    background-color: rgba(0, 0, 0, 0.53);
+    @include media(1399px) {
+      margin-top: rem(120px);
+    }
+    @include media(1199px) {
+      margin-top: rem(80px);
+    }
+  }
+
+  .site-color-two,
+  .single-audio-player div.maudio .audio-control .progress-pass,
+  .single-audio-player .single-audio-content .audio-time .live-status {
+    background-color: $main-color-three;
+  }
+
+  .top-title {
+    color: $main-color-three;
+  }
+
+  .dark-overlay {
+    &::before {
+      background: rgba(26, 29, 34, 0.88);
+    }
+  }
+
+  .podcast-item {
+    .podcast-item-thumb {
+      height: 300px;
+      @include border-radius(30px);
+      @extend .overflow-hidden;
+      &::before {
+        display: none;
+      }
+    }
+    .artist-thumb {
+      @extend .bs-50;
+      @extend .overflow-hidden;
+      @include media(1399px) {
+        width: 75px;
+        height: 75px;
+      }
+    }
+    .artist-content {
+      @include media(1399px) {
+        width: calc(100% - 75px);
+        padding-left: rem(20px);
+      }
+      .show-name {
+        font-size: rem(24px);
+        font-weight: 500;
+        @include media(1399px) {
+          font-size: rem(20px);
+        }
+      }
+    }
+  }
+
+  .btn-main {
+    background-color: $main-color-three;
+    color: #fff;
+    &:hover {
+      background-color: transparent;
+    }
+    &::before,
+    &::after {
+      background-color: $main-color-three;
+    }
+  }
+
+  .section-bg {
+    background-color: #1f2226;
+  }
+
+  .social-links li a {
+    border-color: $main-color-three;
+  }
+
+  .text-base {
+    color: $main-color-three;
+  }
+  .single-audio-player {
+    &.style-sm {
+      .single-audio-thumb {
+        @extend .bs-50;
+        @extend .overflow-hidden;
+      }
+      .single-audio-content-top {
+        .live-status {
+          color: #d9d9d9 !important;
+        }
+        .bookmark-icon {
+          &.active {
+            color: $main-color-three !important;
+          }
+        }
+      }
+    }
+  }
+
+  .testimonial-slider,
+  .testimonial-slider-two {
+    .slick-arrow {
+      background-color: $main-color-three !important;
+      color: #fff;
+    }
+  }
+  .subscribe-form {
+    .btn {
+      @include media(1199px) {
+        width: 100%;
+        height: 70px;
+        margin-top: rem(15px);
+      }
+      @include media(575px) {
+        height: 50px;
+      }
+    }
+  }
+}
+
+.wave-shape {
+  @extend .position-absolute;
+  right: 190px;
+  top: 233px;
+  @extend .z-index-c;
+}
+
+.icon-card {
+  padding: rem(40px);
+  background-color: $card-bg2;
+  @include border-radius(40px);
+  @include media(575px) {
+    padding: rem(25px);
+  }
+  &:hover {
+    background-color: $main-color-three;
+    .icon {
+      @extend .bg-white;
+      color: $main-color-three;
+    }
+    .arrow-btn {
+      color: #fff;
+      &::before {
+        background-color: #fff;
+      }
+    }
+  }
+  .icon {
+    width: 70px;
+    height: 70px;
+    background-color: $main-color-three;
+    color: #fff;
+    @extend .bs-50;
+    @extend .d-flex;
+    @extend .items-center;
+    @extend .transition;
+    i {
+      font-size: rem(32px);
+    }
+  }
+  .title {
+    margin-top: rem(22px);
+    margin-bottom: rem(25px);
+  }
+}
+
+.arrow-btn {
+  @extend .position-relative;
+  @extend .transition;
+  &::before {
+    @extend .position-absolute;
+    content: "";
+    top: 50%;
+    right: -36px;
+    width: 26px;
+    height: 2px;
+    margin-top: -1px;
+    background-color: $main-color-three;
+    @extend .transition;
+  }
+  &::after {
+    @extend .position-absolute;
+    content: "\f054";
+    top: 21%;
+    right: -39px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+  }
+}
+
+.bottom-box-shape {
+  @extend .position-absolute;
+  left: 0;
+  bottom: 0;
+  @extend .z-index-c;
+}
+
+.counter-item {
+  padding: rem(35px);
+  background-color: $card-bg2;
+  @extend .text-center;
+  @include border-radius(30px);
+  .counter-item-amount {
+    color: $main-color-three;
+  }
+  .counter-item-title {
+    font-size: rem(24px);
+    margin-top: rem(10px);
+  }
+}
+
+.dot-shape {
+  @extend .position-absolute;
+  top: 75px;
+  left: 28%;
+  @extend .z-index-c;
+}

@@ -1,0 +1,68 @@
+/* form css start */
+.form-control {
+  padding: rem(25px) rem(30px);
+  border: 1px solid transparent;
+  width: 100%;
+  background-color: rgba(40, 52, 76, 0.86);
+  @extend .text-h;
+  @include border-radius(0);
+  height: rem(80px);
+  @include placeholder(#d9d9d9);
+  @include media(575px) {
+    height: 60px;
+  }
+  &:focus {
+    background-color: rgba(40, 52, 76, 0.86);
+    border-color: $main-color !important;
+    box-shadow: 0 0 5px rgba($main-color, 0.35);
+    @extend .text-h;
+  }
+  &[readonly] {
+    background-color: rgba($main-color, 0.1);
+  }
+  &.form-control-md {
+    height: 45px;
+  }
+  &.form-control-sm {
+    height: 35px;
+  }
+}
+
+.form-select {
+  padding: rem(10px) rem(15px);
+  width: 100%;
+  border: 1px solid darken($border-color, 5%);
+  cursor: pointer;
+  color: $para-color;
+  background-color: #fff;
+  height: rem(80px);
+  @include border-radius(4px);
+  @extend .text-h;
+  option {
+    padding: rem(10px) 0;
+    display: block;
+    border-top: 1px solid #e5e5e5;
+  }
+  &.select--sm {
+    height: rem(35px);
+    font-size: rem(14px);
+    padding: rem(5px);
+  }
+}
+
+textarea {
+  min-height: rem(250px) !important;
+  resize: none;
+  width: 100%;
+  &.textarea-md {
+    min-height: rem(215px) !important;
+  }
+}
+
+label {
+  color: lighten(#000, 30%);
+  margin-bottom: rem(8px);
+  font-size: rem(14px);
+  font-weight: 500;
+}
+/* form css end*/
