@@ -94,8 +94,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="single-content">
-                            <h2>Play List</h2>
-                            <p class="text-white">Home / Play List</p>
+                            <h2>Previously Played</h2>
+                            <p class="text-white">Music - History</p>
                         </div>
                     </div>
                 </div>
@@ -110,55 +110,7 @@
             </section>
         </section>
         <!-- page banner end -->
-        <section class="pt-120 pb-120">
-            <div class="container">
-                <div class="row justify-content-center">
 
-                </div><!-- row end -->
-                <div class="row gy-5 justify-content-center">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="show-item link-item" style='border-radius: 10px; cursor:auto;'>
-                            <img src="assets/images/shows/previous/2.jpg" alt="image">
-                            <div class="show-item-content">
-                                <div class="section-top col-sm-10 "
-                                    style="justify-content: end; width: 100%; text-align: end; align-items: end; margin: top -20px;;">
-                                    <span class="top-title" style="margin-bottom: 3rem; margin-left: 12px;">Now
-                                        Playing</span>
-                                    <h2 class="section-title"> </h2>
-                                </div>
-                                <div class="artist-content"
-                                    style="padding-left: 0% !important; padding-right: 0% !important; width: 100%;">
-                                    <h5 class="show-name">LETS PRAISE HIM</h5>
-                                    <p class="artist-name" style="border-bottom: 2px dotted;">ALBUM:</p>
-                                    <p class="artist-name" style="border-bottom: 2px dotted;">ARTIST:</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="show-item link-item" style='border-radius: 10px; cursor:auto;'>
-                            <img src="assets/images/shows/previous/2.jpg" alt="image">
-                            <div class="show-item-content">
-                                <div class="section-top col-sm-10 "
-                                    style="justify-content: end; width: 100%; text-align: end; align-items: end; margin: top -20px;;">
-                                    <span class="top-title" style="margin-bottom: 3rem; margin-left: 12px;">Next
-                                        Playing</span>
-                                    <h2 class="section-title"> </h2>
-                                </div>
-                                <div class="artist-content"
-                                    style="padding-left: 0% !important; padding-right: 0% !important; width: 100%;">
-                                    <h5 class="show-name">LETS PRAISE HIM</h5>
-                                    <p class="artist-name" style="border-bottom: 2px dotted;">ALBUM:</p>
-                                    <p class="artist-name" style="border-bottom: 2px dotted;">ARTIST:</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- previous show section end -->
         <!--table start -->
         <section class=" pb-120 dark-overlay position-relative z-index2"
@@ -170,10 +122,13 @@
                 <img src="assets/images/elements/right-dot-circle.png" alt="image">
             </div>
             <div class="container ">
+                <div class="top-title text-center pt-5 fs-4">
+                    Music History
+                </div>
+                <div class="section-title text-center fs-2 pb-4">
+                    Recently Played
+                </div>
 
-                <div class="top-title"
-                    style=" padding: 77px 0px 77px 0px; align-items: center;text-align: center; justify-content: center;">
-                    Recent History</div>
                 <div class="table-responsive">
                     <table class="table "
                         style="border-radius: 10px;color: rgb(190, 190, 190); border-left: 1px solid  #0a0707 ; border-top: 1px solid  #0a0707; overflow: hidden;">
@@ -183,16 +138,14 @@
                                 <th>Artist</th>
                                 <th>Album</th>
                                 <th>Hours/Date</th>
-                                <th>Purchase</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <!-- <tbody>
                             <tr>
                                 <td style="vertical-align: middle;">Bible Verse</td>
                                 <td>Artist Name</td>
                                 <td>Album Name</td>
                                 <td>12 Apr 2024, 3:22 AM EST</td>
-                                <td> <a  href="history.html" class="btn btn-main">Buy Album</a>
                                 </td>
                             </tr>
                             <tr>
@@ -200,7 +153,6 @@
                                 <td>Artist Name</td>
                                 <td>Album Name</td>
                                 <td>12 Apr 2024, 3:22 AM EST</td>
-                                <td> <a href="history.html" class="btn btn-main">Buy Album </a>
                                 </td>
                             </tr>
                             <tr>
@@ -208,11 +160,10 @@
                                 <td>Artist Name</td>
                                 <td>Album Name</td>
                                 <td>12 Apr 2024, 3:22 AM EST</td>
-                                <td> <a href="history.html" class="btn btn-main">Buy Album </a>
                                 </td>
                             </tr>
-                            <!-- Add more rows here if needed -->
-                        </tbody>
+                        </tbody> -->
+                        <tbody id="song-history"></tbody>
                     </table>
                 </div>
             </div>
@@ -379,6 +330,50 @@
 
     <!-- main js -->
     <script src="assets/js/main.js"></script>
+
+
+
+    <!-- render song  -->
+    <script>
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString("en-GB", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true
+            }).replace(",", ""); // Extra comma hatane ke liye
+        }
+        async function fetchSongs() {
+            try {
+                const response = await fetch("https://backend.hgdjlive.com/api/v1/song-history/655347b59c00a7409d9181c3");
+                const data = await response.json();
+                const tableBody = document.getElementById("song-history");
+
+                tableBody.innerHTML = ""; // Clear previous entries
+
+                data.forEach(song => {
+                    const date = formatDate(song.date)
+
+                    const row = `
+                        <tr>
+                            <td>${song.title}</td>
+                            <td>${song.artist}</td>
+                            <td>${song.album}</td>
+                            <td style="text-transform: uppercase;">${date}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error("Error fetching song history:", error);
+            }
+        }
+
+        fetchSongs();
+    </script>
 </body>
 
 </html>

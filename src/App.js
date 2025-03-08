@@ -22,7 +22,7 @@ import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import ReactCurvedText from "react-curved-text";
 import { IoCalendarNumber } from "react-icons/io5";
 
-
+const sleep = ms => new Promise(r => window.setTimeout(r,ms));
 function groupDJsByDays(djsData) {
   const daysDict = { 
       0: [], 
@@ -272,7 +272,8 @@ export default function App() {
 	}
 
 	const handleCall = async () => {
-		window.open(`https://onlinebazaarr.com/call/${params.streamId}`)
+		audioRef.current.pause();
+		window.open(`https://hgdjlive.com/call/${params.streamId}`,"_blank", "width=600,height=600")
 	}
 
 
@@ -295,6 +296,19 @@ export default function App() {
       }
     }).catch(err => console.log(err.message))
   },[])
+
+
+  const handleEnded = async (isPlay) => {
+	console.log('handle handleEnded call');
+	if(true){
+		console.log('handle playing... call');
+		const url = audioRef.current.src
+		audioRef.current.src = url;
+		await sleep(3000)
+		audioRef.current.play();
+	}
+
+}
 
 	
 
@@ -339,21 +353,6 @@ export default function App() {
             {isLive ? <img src={currentSong.cover} alt='image'/> : <img src="assets/images/shows/player/3.jpg" alt="image"/>}
 						
 					</div>
-					{/* <div className="single-audio-thumb rotate">
-						
-						<ReactCurvedText
-							width={'100%'}
-							height={'100%'}
-							cx={50}
-							cy={50}
-							rx={30}
-							ry={30}
-							startOffset={50}
-      						reversed={true}
-							text={currentSong?.title ? currentSong?.title : ''}
-							textPathProps={ {fill: 'red'} }
-						/>
-					</div> */}
 					<div className="single-audio-content-top">
 						<h4 className="title">{!isLive ? `“Auto DJ”`: `“${nextSong?.user?.name} Live”`}</h4>
 						<p className="audio-time" style={{fontSize: "12px",whiteSpace: 'pre'}}>Current song : {currentSong?.title?.split('.')[0]}</p>
@@ -367,7 +366,7 @@ export default function App() {
 						<div class="">
 							
 							<div class="audio-control flex items-center flex-row justify-center gap-[5rem]">               
-								<audio ref={audioRef} controls className="w-full bg-none hidden"></audio>
+								<audio ref={audioRef} controls className="w-full bg-none hidden" onEnded={() => handleEnded(isPlay)} onPlay={() => setIsPlay(true)} autoPlay onPause={() => setIsPlay(false)}></audio>
 								<div className='flex gap-4 items-center'>
 									<button className=" border-none outline-none text-white disabled:cursor-[not-allowed]  cursor-pointer disabled:opacity-25 mr-2" disabled={!isLive} title="Call" onClick={handleCall}><MdCall size={35}/></button>
 									<button className="disabled:opacity-20 p-2 rounded-full border-none outline-none text-white" disabled={!roomActive} onClick={handlePlay}>
