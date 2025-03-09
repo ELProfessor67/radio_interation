@@ -18,6 +18,175 @@
   <link rel="stylesheet" href="assets/css/lib/slick.css">
   <!-- main css -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+
+
+  <style>
+    .popup {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0px;
+      background-color: transparent;
+      color: white;
+      border-radius: 5px;
+      /* display: none; */
+      z-index: 1000;
+      /* Ensure it appears above content */
+    }
+
+    .popup-right {
+      right: -300px;
+      overflow: hidden;
+    }
+
+    .popup-left {
+      left: -300px;
+    }
+
+    .show-right {
+      right: 20px;
+      transition: right 3s ease;
+    }
+
+    .show-left {
+      left: 20px;
+      transition: left 3s ease;
+    }
+
+    /* Example container for video/image */
+    .hero-section {
+      position: relative;
+      /* Ensures popups are positioned relative to this container */
+      z-index: -5;
+    }
+
+
+    .glass-box-left {
+      width: 220px;
+      height: 250px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      border-radius: 15px;
+      padding: 20px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border: 5px solid;
+      border-image: linear-gradient(90deg, #ff4081, #76ff03, #40c4ff, #ffeb3b);
+      border-image-slice: 1;
+      animation: borderStripeAnimation 5s linear infinite;
+    }
+
+    .glass-box {
+      width: 220px;
+      height: 250px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      border-radius: 15px;
+      padding: 20px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border: 5px solid;
+      border-image: linear-gradient(90deg, #ff4081, #76ff03, #40c4ff, #ffeb3b);
+      border-image-slice: 1;
+      animation: borderStripeAnimation 5s linear infinite;
+    }
+
+    @keyframes borderStripeAnimation {
+      0% {
+        border-image-source: linear-gradient(90deg, #c90647, #357004, #0b83bb, #c7b406);
+      }
+
+      25% {
+        border-image-source: linear-gradient(90deg, #76ff03, #ff4081, #ffeb3b, #40c4ff);
+      }
+
+      50% {
+        border-image-source: linear-gradient(90deg, #ff4081, #76ff03, #40c4ff, #ffeb3b);
+      }
+
+      100% {
+        border-image-source: linear-gradient(90deg, #76ff03, #ff4081, #ffeb3b, #40c4ff);
+      }
+    }
+
+    @keyframes textColorChange {
+      0% {
+        color: #ffffff;
+      }
+
+      25% {
+        color: #ffffff;
+      }
+
+      50% {
+        color: #ffffff;
+      }
+
+      75% {
+        color: #ffffff;
+      }
+
+      100% {
+        color: #ffffff;
+      }
+    }
+
+    .ml6 {
+      position: relative;
+      font-size: 20px;
+      line-height: 1.6;
+      text-align: center;
+      color: #fff;
+    }
+
+    .ml6 .line {
+      display: inline-block;
+      position: relative;
+      font-weight: bold;
+      white-space: nowrap;
+      animation: textColorChange 4s linear infinite;
+    }
+
+    .ml6 .line1 {
+      color: #ff4081;
+      font-size: 21px;
+    }
+
+    .ml6 .line2 {
+      color: #76ff03;
+      font-size: 18px;
+    }
+
+    .ml6 .line3 {
+      color: #40c4ff;
+      font-size: 20px;
+    }
+
+    .ml6 .line4 {
+      color: #f5f77a;
+      font-size: 22px;
+    }
+
+
+    @media screen and (max-width: 780px) {
+      .popup {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body class="home-red">
@@ -138,7 +307,39 @@
   <main class="site-body">
 
     <!-- banner section start -->
-    <div id="root"></div>
+
+
+    <div class="hero-section">
+      <div id="root"></div>
+      <div class="popup popup-right " id="popupRight">
+        <div class="glass-box">
+          <h1 class="ml6">
+            <span class="line line1"
+              style="transform: translateY(0em); opacity: 1; color: rgb(255, 255, 255);">Hallelujah Gospel</span><br>
+            <span class="line line2" style="transform: scale(1); opacity: 1; color: rgb(255, 255, 255);">Choice Radio
+              Station</span><br><br>
+            <span class="line line3" style="transform: rotateX(0deg); opacity: 1; color: rgb(255, 255, 255);">Your
+              highest praise</span>
+            <span class="line line4" style="transform: rotateY(0deg); opacity: 1; color: rgb(255, 255, 255);">Radio
+              Station</span>
+          </h1>
+        </div>
+      </div>
+      <div class="popup popup-left" id="popupLeft">
+        <div class="glass-box-left">
+          <h1 class="ml6">
+            <span class="line line1"
+              style="transform: translateY(0em); opacity: 1; color: rgb(255, 255, 255);">Hallelujah Gospel</span><br>
+            <span class="line line2" style="transform: scale(1); opacity: 1; color: rgb(255, 255, 255);">Choice Radio
+              Station</span><br><br>
+            <span class="line line3" style="transform: rotateX(0deg); opacity: 1; color: rgb(255, 255, 255);">The
+              Revival Station</span>
+            <span class="line line4" style="transform: rotateY(0deg); opacity: 1; color: rgb(255, 255, 255);"></span>
+          </h1>
+        </div>
+      </div>
+      <!-- Your video or image can go here -->
+    </div>
     <!-- banner section end -->
     <!-- Additional Content Section -->
 
@@ -4576,6 +4777,55 @@
   <script src="assets/js/contact.js"></script>
   <!-- main js -->
   <script src="assets/js/main.js"></script>
+
+
+
+  <script>
+    $(document).ready(function () {
+      function showPopup(popupId, showClass) {
+        $(popupId).fadeIn(1500, function () { // Fade in over 1.5 seconds
+          $(this).addClass(showClass);
+        });
+
+        setTimeout(function () {
+          console.log("call900099999")
+          $(popupId).fadeOut(500, function () { // Fade out over 0.5 seconds
+            if ($(popupId).hasClass('d-md-flex') || $(popupId).hasClass('d-lg-flex') || $(popupId).hasClass('d-xl-flex')) {
+              // $(this).removeClass("d-md-flex");  // Remove class after fading out
+              // $(this).removeClass("d-lg-flex");  // Remove class after fading out
+              // $(this).removeClass("d-xl-flex");  // Remove class after fading out
+              $(this).addClass("d-none");  // Remove class after fading out
+              $(this).css('right', '0');  // Hide the popup using display: none
+              $(this).removeClass(showClass);  // Remove class after fading out
+            } else {
+              // $(this).addClass("d-md-flex");  // Remove class after fading out
+              // $(this).addClass("d-lg-flex");  // Remove class after fading out
+              // $(this).addClass("d-xl-flex");  // Remove class after fading out
+              $(this).removeClass("d-none");  // Remove class after fading out
+              $(this).css('right', '20px');  // Hide the popup using display: none
+              $(this).addClass(showClass);  // Remove class after fading out
+            }
+          });
+        }, 30000); // Display for 30 seconds
+      }
+
+      function initiatePopups() {
+        showPopup('#popupRight', 'show-right');
+        setTimeout(function () {
+          showPopup('#popupLeft', 'show-left');
+        }, 3000); // Show left popup after a 3-second delay
+
+        setInterval(function () {
+          showPopup('#popupRight', 'show-right');
+          setTimeout(function () {
+            showPopup('#popupLeft', 'show-left');
+          }, 3000); // Adjust this delay between 3-5 seconds as needed
+        }, 180000); // Every 3 minutes
+      }
+
+      initiatePopups();
+    });
+  </script>
 </body>
 
 </html>
