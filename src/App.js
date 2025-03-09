@@ -314,9 +314,7 @@ export default function App() {
 
 	return (
 		<>
-    <div onClick={() => setScheduleOpen(true)} className='fixed bottom-[6rem] cursor-pointer right-[1.2rem] rounded-full w-[4rem] flex items-center justify-center h-[4rem] bg-red-600 z-50'>
-      <IoCalendarNumber size={30}/>
-    </div>
+    
 
     {/* schedule  */}
     <NewDialog open={scheduleOpen} onClose={() => setScheduleOpen(false)}>

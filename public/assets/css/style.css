@@ -4675,7 +4675,7 @@ label {
 }
 
 .rj-item.style-three .content .name a:hover {
-  color: #ff0000;
+  color: #66fcf1;
 }
 
 .rj-sldier {
@@ -4811,7 +4811,7 @@ label {
 .rj-live-show .live-status {
   top: 2.5rem;
   right: 2.5rem;
-  background-color: #ff0000;
+  background-color: #66fcf1;
   padding: 0.125rem 1.0625rem;
   border-radius: 99px;
   -webkit-border-radius: 99px;
@@ -4838,7 +4838,7 @@ label {
   .audio-control
   .progress-bar
   .progress-pass {
-  background-color: #ff0000;
+  background-color: #66fcf1;
 }
 
 .rj-live-show .single-audio-content .maudio .audio-control .time-keep {
@@ -5014,7 +5014,7 @@ label {
 .testimonial-item.style-three .testimonial-client .client-thumb {
   width: 80px;
   height: 80px;
-  border: 3px solid #ff0000;
+  border: 3px solid #66fcf1;
 }
 
 .testimonial-item.style-three .testimonial-client .client-content {
@@ -5859,7 +5859,7 @@ label {
   margin-top: -4px;
   width: 8px;
   height: 8px;
-  background-color: #ff0000;
+  background-color: #66fcf1;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -5870,7 +5870,7 @@ label {
 .music-single-thumb .music-single-thumb-bookmark {
   top: 20px;
   right: 45px;
-  color: #ff0000;
+  color: #66fcf1;
   background-color: transparent;
   padding: 0;
 }
@@ -6195,7 +6195,7 @@ label {
   top: 50%;
   left: 15px;
   margin-top: -4px;
-  background-color: #ff0000;
+  background-color: #66fcf1;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -6326,7 +6326,7 @@ label {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #ff0000;
+  background-color: #66fcf1;
   margin-top: -4px;
 }
 
@@ -6830,11 +6830,11 @@ blockquote::after {
 
 .home-red .footer-section .footer-general-menu li a:hover,
 .home-red .footer-section .social-links-two li a:hover {
-  color: #ff0000;
+  color: #66fcf1;
 }
 
 .home-red .scroll-top {
-  background-color: #ff0000;
+  background-color: #66fcf1;
   color: #fff;
 }
 
@@ -7021,11 +7021,11 @@ blockquote::after {
 .single-audio-player div.maudio .audio-control .home-red .progress-pass,
 .home-red .single-audio-player div.maudio .audio-control .progress-pass,
 .home-red .single-audio-player .single-audio-content .audio-time .live-status {
-  background-color: #ff0000;
+  background-color: #66fcf1;
 }
 
 .home-red .top-title {
-  color: #ff0000;
+  color: #66fcf1;
 }
 
 .home-red .dark-overlay::before {
@@ -7082,7 +7082,7 @@ blockquote::after {
 }
 
 .home-red .btn-main {
-  background-color: #ff0000;
+  background-color: #66fcf1;
   color: #fff;
 }
 
@@ -7092,7 +7092,7 @@ blockquote::after {
 
 .home-red .btn-main::before,
 .home-red .btn-main::after {
-  background-color: #ff0000;
+  background-color: #66fcf1;
 }
 
 .home-red .section-bg,
@@ -7101,7 +7101,7 @@ blockquote::after {
 }
 
 .home-red .social-links li a {
-  border-color: #ff0000;
+  border-color: #66fcf1;
 }
 
 .home-red .text-base,
@@ -7208,7 +7208,7 @@ blockquote::after {
 .radio-details-player .thumb-area .home-red .radio-status,
 .home-red .contact-item .top .icon i,
 .contact-item .top .icon .home-red i {
-  color: #ff0000;
+  color: #66fcf1;
 }
 
 .home-red .single-audio-player.style-sm .single-audio-content-top .live-status {
@@ -7219,12 +7219,12 @@ blockquote::after {
   .single-audio-player.style-sm
   .single-audio-content-top
   .bookmark-icon.active {
-  color: #ff0000 !important;
+  color: #66fcf1 !important;
 }
 
 .home-red .testimonial-slider .slick-arrow,
 .home-red .testimonial-slider-two .slick-arrow {
-  background-color: #ff0000 !important;
+  background-color: #66fcf1 !important;
   color: #fff;
 }
 
@@ -7264,11 +7264,11 @@ blockquote::after {
 }
 
 .icon-card:hover {
-  background-color: #ff0000;
+  background-color: #66fcf1;
 }
 
 .icon-card:hover .icon {
-  color: #ff0000;
+  color: #66fcf1;
 }
 
 .icon-card:hover .arrow-btn {
@@ -7282,7 +7282,7 @@ blockquote::after {
 .icon-card .icon {
   width: 70px;
   height: 70px;
-  background-color: #ff0000;
+  background-color: #66fcf1;
   color: #fff;
 }
 
@@ -7302,7 +7302,7 @@ blockquote::after {
   width: 26px;
   height: 2px;
   margin-top: -1px;
-  background-color: #ff0000;
+  background-color: #66fcf1;
 }
 
 .arrow-btn::after {
@@ -7330,7 +7330,7 @@ blockquote::after {
 }
 
 .counter-item .counter-item-amount {
-  color: #ff0000;
+  color: #66fcf1;
 }
 
 .counter-item .counter-item-title {
@@ -8225,7 +8225,7 @@ blockquote::after {
 }
 
 .eng-card h4 {
-  color: #ff0000;
+  color: #66fcf1;
   font-size: 21px;
   font: 700;
   margin-bottom: 20px;

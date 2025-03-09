@@ -362,7 +362,7 @@
     @extend .position-absolute;
     top: rem(40px);
     right: rem(40px);
-    background-color: #ff0000;
+    background-color: #66fcf1;
     padding: rem(2px) rem(17px);
     @include border-radius(99px);
     font-size: rem(16px);
@@ -378,7 +378,7 @@
         .progress-bar {
           background-color: #fff !important;
           .progress-pass {
-            background-color: #ff0000;
+            background-color: #66fcf1;
           }
         }
         .time-keep {

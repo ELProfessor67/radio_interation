@@ -3928,7 +3928,7 @@ label {
 }
 
 .rj-item.style-three .content .name a:hover {
-    color: #FF0000;
+    color: #66fcf1;
 }
 
 .rj-sldier {
@@ -4064,7 +4064,7 @@ label {
 .rj-live-show .live-status {
     top: 2.5rem;
     right: 2.5rem;
-    background-color: #ff0000;
+    background-color: #66fcf1;
     padding: 0.125rem 1.0625rem;
     border-radius: 99px;
     -webkit-border-radius: 99px;
@@ -4086,7 +4086,7 @@ label {
 }
 
 .rj-live-show .single-audio-content .maudio .audio-control .progress-bar .progress-pass {
-    background-color: #ff0000;
+    background-color: #66fcf1;
 }
 
 .rj-live-show .single-audio-content .maudio .audio-control .time-keep {
@@ -4257,7 +4257,7 @@ label {
 .testimonial-item.style-three .testimonial-client .client-thumb {
     width: 80px;
     height: 80px;
-    border: 3px solid #FF0000;
+    border: 3px solid #66fcf1;
 }
 
 .testimonial-item.style-three .testimonial-client .client-content {
@@ -5096,7 +5096,7 @@ label {
     margin-top: -4px;
     width: 8px;
     height: 8px;
-    background-color: #ff0000;
+    background-color: #66fcf1;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -5107,7 +5107,7 @@ label {
 .music-single-thumb .music-single-thumb-bookmark {
     top: 20px;
     right: 45px;
-    color: #ff0000;
+    color: #66fcf1;
     background-color: transparent;
     padding: 0;
 }
@@ -5428,7 +5428,7 @@ label {
     top: 50%;
     left: 15px;
     margin-top: -4px;
-    background-color: #ff0000;
+    background-color: #66fcf1;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -5559,7 +5559,7 @@ label {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #ff0000;
+    background-color: #66fcf1;
     margin-top: -4px;
 }
 
@@ -6019,11 +6019,11 @@ blockquote::after {
 
 .home-red .footer-section .footer-general-menu li a:hover,
 .home-red .footer-section .social-links-two li a:hover {
-    color: #FF0000;
+    color: #66fcf1;
 }
 
 .home-red .scroll-top {
-    background-color: #FF0000;
+    background-color: #66fcf1;
     color: #fff;
 }
 
@@ -6153,11 +6153,11 @@ blockquote::after {
 .home-red .site-color-two, .home-red .theme-change .theme-change-box, .theme-change .home-red .theme-change-box, .single-audio-player .single-audio-content .audio-time .home-red .live-status, .single-audio-player div.maudio .audio-control .home-red .progress-pass,
 .home-red .single-audio-player div.maudio .audio-control .progress-pass,
 .home-red .single-audio-player .single-audio-content .audio-time .live-status {
-    background-color: #FF0000;
+    background-color: #66fcf1;
 }
 
 .home-red .top-title {
-    color: #FF0000;
+    color: #66fcf1;
 }
 
 .home-red .dark-overlay::before {
@@ -6203,7 +6203,7 @@ blockquote::after {
 }
 
 .home-red .btn-main {
-    background-color: #FF0000;
+    background-color: #66fcf1;
     color: #fff;
 }
 
@@ -6212,7 +6212,7 @@ blockquote::after {
 }
 
 .home-red .btn-main::before, .home-red .btn-main::after {
-    background-color: #FF0000;
+    background-color: #66fcf1;
 }
 
 .home-red .section-bg, .home-red .footer-section {
@@ -6220,11 +6220,11 @@ blockquote::after {
 }
 
 .home-red .social-links li a {
-    border-color: #FF0000;
+    border-color: #66fcf1;
 }
 
 .home-red .text-base, .home-red .top-title, .home-red .preloader .preloader-container .preloader-icon i, .preloader .preloader-container .preloader-icon .home-red i, .home-red .preloader .preloader-container p span, .preloader .preloader-container p .home-red span, .home-red .show-tabs .nav-item .nav-link.active, .show-tabs .nav-item .home-red .nav-link.active, .home-red .show-tabs-two .nav-item .nav-link.active, .show-tabs-two .nav-item .home-red .nav-link.active, .home-red .single-audio-player:hover .title, .single-audio-player:hover .home-red .title, .home-red .single-audio-player.style-sm .single-audio-content .single-audio-content-top .live-status, .single-audio-player.style-sm .single-audio-content .single-audio-content-top .home-red .live-status, .home-red .site-menu .menu-item a:hover, .site-menu .menu-item .home-red a:hover, .home-red .footer-nav .footer-menu li a:hover, .footer-nav .footer-menu li .home-red a:hover, .home-red .social-links li a, .social-links li .home-red a, .home-red .cat-list li a i, .cat-list li a .home-red i, .home-red .cat-list li a:hover, .cat-list li .home-red a:hover, .home-red .tag-list li a, .tag-list li .home-red a, .home-red .social-links-white li a:hover, .social-links-white li .home-red a:hover, .home-red .author-widget .social-link li a:hover, .author-widget .social-link li .home-red a:hover, .home-red .banner-sm-show .sm-show-content .sm-show-title, .banner-sm-show .sm-show-content .home-red .sm-show-title, .home-red .page-breadcrumb li a:hover, .page-breadcrumb li .home-red a:hover, .home-red .podcast-item:hover .show-name, .podcast-item:hover .home-red .show-name, .home-red .podcard-show-item .podcard-show-link, .podcard-show-item .home-red .podcard-show-link, .home-red .rj-item .rj-social-links li a, .rj-item .rj-social-links li .home-red a, .home-red .rj-item.style-two .content .rj-social-links li a:hover, .rj-item.style-two .content .rj-social-links li .home-red a:hover, .home-red .rj-details-box .rj-social-links li a:hover, .rj-details-box .rj-social-links li .home-red a:hover, .home-red .rj-details-contact-list li i, .rj-details-contact-list li .home-red i, .home-red .rj-show-item:hover .title, .rj-show-item:hover .home-red .title, .home-red .blog-item .blog-btn, .blog-item .home-red .blog-btn, .home-red .upcoming-show .upcoming-content .upcoming-title, .upcoming-show .upcoming-content .home-red .upcoming-title, .home-red .show-item.style-two .show-item-content .show-item-top .show-item-duration, .show-item.style-two .show-item-content .show-item-top .home-red .show-item-duration, .home-red .counter-item .counter-amount, .counter-item .home-red .counter-amount, .home-red .overview-item .overview-amount, .overview-item .home-red .overview-amount, .home-red .overview-item-two h4, .overview-item-two .home-red h4, .home-red .station-item a, .station-item .home-red a, .home-red .station-item-two:hover .station-name h5, .station-item-two:hover .station-name .home-red h5, .home-red .single-audio-player.online-radio-item .online-radio-item-station .content p, .single-audio-player.online-radio-item .online-radio-item-station .content .home-red p, .home-red .single-audio-player.online-radio-item .online-radio-item-status .live-radio-status, .single-audio-player.online-radio-item .online-radio-item-status .home-red .live-radio-status, .home-red .albam-item .albam-item-link, .albam-item .home-red .albam-item-link, .home-red .radio-details-player .thumb-area .radio-status, .radio-details-player .thumb-area .home-red .radio-status, .home-red .contact-item .top .icon i, .contact-item .top .icon .home-red i {
-    color: #FF0000;
+    color: #66fcf1;
 }
 
 .home-red .single-audio-player.style-sm .single-audio-content-top .live-status {
@@ -6232,12 +6232,12 @@ blockquote::after {
 }
 
 .home-red .single-audio-player.style-sm .single-audio-content-top .bookmark-icon.active {
-    color: #FF0000 !important;
+    color: #66fcf1 !important;
 }
 
 .home-red .testimonial-slider .slick-arrow,
 .home-red .testimonial-slider-two .slick-arrow {
-    background-color: #FF0000 !important;
+    background-color: #66fcf1 !important;
     color: #fff;
 }
 
@@ -6277,11 +6277,11 @@ blockquote::after {
 }
 
 .icon-card:hover {
-    background-color: #FF0000;
+    background-color: #66fcf1;
 }
 
 .icon-card:hover .icon {
-    color: #FF0000;
+    color: #66fcf1;
 }
 
 .icon-card:hover .arrow-btn {
@@ -6295,7 +6295,7 @@ blockquote::after {
 .icon-card .icon {
     width: 70px;
     height: 70px;
-    background-color: #FF0000;
+    background-color: #66fcf1;
     color: #fff;
 }
 
@@ -6315,7 +6315,7 @@ blockquote::after {
     width: 26px;
     height: 2px;
     margin-top: -1px;
-    background-color: #FF0000;
+    background-color: #66fcf1;
 }
 
 .arrow-btn::after {
@@ -6343,7 +6343,7 @@ blockquote::after {
 }
 
 .counter-item .counter-item-amount {
-    color: #FF0000;
+    color: #66fcf1;
 }
 
 .counter-item .counter-item-title {
