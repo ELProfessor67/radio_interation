@@ -120,6 +120,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 	const myStreamRef = useRef();
 	const hlsSetAlreadyRef = useRef(false);
 	const hlsRef = useRef();
+	const [IsTonePlayingMessage, setIsTonePlayingMessage] = useState(null);
 
 
 	useEffect(() => {
@@ -151,15 +152,42 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 		if (scheduleActiveRef.current == true || isLiveRef.current == true) {
 			return
 		}
-
+		const isSchedulePlaying = data.isSchedulePlaying
 		setRoomActive(true);
 		setAutoDj(true);
 
 		console.log('auto dj', data);
 
 		// audioRef.current.src = data?.currentSong?.url;
-		if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}`) {
+		// if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}` && !isSchedulePlaying) {
+		// 	audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}`;
+		// }
+
+		if (audioRef.current.srcObject && !isSchedulePlaying) {
+			audioRef.current.srcObject = null;
+
 			audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}`;
+			audioRef.current.load();
+			audioRef.current.play();
+
+		};
+
+		if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}` && !isSchedulePlaying) {
+			audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}`;
+			audioRef.current.load();
+
+			if (playRef.current == true) {
+				audioRef.current.play();
+			}
+		}
+
+		if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded` && isSchedulePlaying) {
+			audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
+			audioRef.current.load();
+
+			if (playRef.current == true) {
+				audioRef.current.play();
+			}
 		}
 
 
@@ -393,6 +421,22 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 		});
 
 		socketRef.current.on('play-welcome-tone', (data) => {
+			const isSheduled = data.isSheduled;
+
+			if(isSheduled){
+				console.log("Is Scheduled");
+				if (audioRef.current.srcObject) {
+					audioRef.current.srcObject = null;
+					audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
+					audioRef.current.load();
+				};
+		
+				if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`) {
+					audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
+					audioRef.current.load();
+				}
+			}
+
 			if (data?.welcomeTone) {
 				console.log('welcome tone started')
 				const song = new Audio(`${REACT_PUBLIC_SOCKET_URL}${data?.welcomeTone}`);
@@ -406,16 +450,46 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					}
 					song.play().then(() => {
 						console.log("Audio started playing");
+						setIsTonePlayingMessage("Welcome Tone Playing...")
 					}).catch((error) => {
 						console.error("Error playing audio:", error);
 					});
 				});
 				song.addEventListener("ended", () => {
+					setIsTonePlayingMessage(null)
 					audioRef.current.play();
 					console.log("Audio has finished playing");
 				});
 			}
 		});
+
+		socketRef.current.on('play-ending-tone', (data) => {
+			if (data?.endingTone) {
+				console.log('ending tone started')
+				const song = new Audio(`${REACT_PUBLIC_SOCKET_URL}${data?.endingTone}`);
+
+				song.addEventListener("canplaythrough", () => {
+					console.log("Audio loaded successfully");
+					
+					if (!isLiveRef.current) {
+						audioRef.current.pause();
+					}
+					song.play().then(() => {
+						setIsTonePlayingMessage("Ending Tone Playing...")
+						console.log("Audio started playing");
+					}).catch((error) => {
+						console.error("Error playing audio:", error);
+					});
+					
+				});
+
+				song.addEventListener("ended", () => {
+					setIsTonePlayingMessage(null)
+					window.location.reload();
+				});
+			}
+		});
+
 
 		socketRef.current.on('room-unactive', async (data) => {
 			if (data?.butScheduleActive) {
@@ -438,26 +512,26 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 		socketRef.current.on('owner-left', async () => {
 
-			if (ownerRef.current.endingTone) {
-				const song = new Audio(`${REACT_PUBLIC_SOCKET_URL}${ownerRef.current?.endingTone}`);
-				song.addEventListener("canplaythrough", () => {
-					console.log("Audio loaded successfully");
-					audioRef.current.pause();
-					song.play().then(() => {
-						console.log("Audio started playing");
-					}).catch((error) => {
-						console.error("Error playing audio:", error);
-					});
-				});
-				song.addEventListener("ended", async () => {
-					window.location.reload();
-					sleep(1000);
-					console.log("Audio has finished playing");
-				});
-				song.load();
-			} else {
-				window.location.reload();
-			}
+			// if (ownerRef.current.endingTone) {
+			// 	const song = new Audio(`${REACT_PUBLIC_SOCKET_URL}${ownerRef.current?.endingTone}`);
+			// 	song.addEventListener("canplaythrough", () => {
+			// 		console.log("Audio loaded successfully");
+			// 		audioRef.current.pause();
+			// 		song.play().then(() => {
+			// 			console.log("Audio started playing");
+			// 		}).catch((error) => {
+			// 			console.error("Error playing audio:", error);
+			// 		});
+			// 	});
+			// 	song.addEventListener("ended", async () => {
+			// 		window.location.reload();
+			// 		sleep(1000);
+			// 		console.log("Audio has finished playing");
+			// 	});
+			// 	song.load();
+			// } else {
+			// 	window.location.reload();
+			// }
 
 
 		});
@@ -532,6 +606,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 			socketRef.current.off('receive-message');
 			socketRef.current.off('next-song');
 			socketRef.current.off('play-welcome-tone');
+			socketRef.current.off('play-ending-tone');
 		}
 
 	}, []);
@@ -569,7 +644,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 
 
-	return { socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
+	return { IsTonePlayingMessage, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
 }
 
 export default useSocket;
