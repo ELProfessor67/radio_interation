@@ -186,7 +186,7 @@ export default function App() {
 	const downloadLink = useRef();
 
 	// console.log('isPlay from components side', isPlay)
-	const { IsTonePlayingMessage, roomActive, handleRequestSong, isLive, autodj, messageList, handleSendMessage, callAdmin, cutCall, nextSong, currentSong } = useSocketUser(params.streamId, audioRef, name, isPlay, setIsPlay, message, setMessage, setCallStatus, location);
+	const {schedulePlaying, IsTonePlayingMessage, roomActive, handleRequestSong, isLive, autodj, messageList, handleSendMessage, callAdmin, cutCall, nextSong, currentSong } = useSocketUser(params.streamId, audioRef, name, isPlay, setIsPlay, message, setMessage, setCallStatus, location);
 	// const [more,setMore] = useState(false);
 	const [rOpen, setROPen] = useState(false);
 	console.log(roomActive)
@@ -314,12 +314,12 @@ export default function App() {
 
 	return (
 		<>
-			{/* {
-				IsTonePlayingMessage &&
-				<div className='absolute top-8 left-[50%] -translate-x-[50%] p-2 bg-black/40 rounded-md z-[100000000000000000000000]'>
+			{
+				true &&
+				<div className='absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] p-2 bg-black/40 rounded-md z-[100000000000000000000000]'>
 					{IsTonePlayingMessage}
 				</div>
-			} */}
+			}
 
 			{/* schedule  */}
 			<NewDialog open={scheduleOpen} onClose={() => setScheduleOpen(false)}>
@@ -357,7 +357,7 @@ export default function App() {
 
 									</div>
 									<div className="single-audio-content-top">
-										<h4 className="title">{IsTonePlayingMessage ? IsTonePlayingMessage : !isLive ? `“Auto DJ”` : `“${nextSong?.user?.name} Live”`}</h4>
+										<h4 className="title">{schedulePlaying ? `“Live Schedule”` : !isLive ? `“Auto DJ”` : `“${nextSong?.user?.name} Live”`}</h4>
 										<p className="audio-time" style={{ fontSize: "12px", whiteSpace: 'pre' }}>Current song : {currentSong?.title?.split('.')[0]}</p>
 										{
 											(currentSong?.artist && currentSong?.album) &&

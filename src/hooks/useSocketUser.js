@@ -121,7 +121,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 	const hlsSetAlreadyRef = useRef(false);
 	const hlsRef = useRef();
 	const [IsTonePlayingMessage, setIsTonePlayingMessage] = useState(null);
-
+	const [schedulePlaying, setSchedulePlaying] = useState(false);
 
 	useEffect(() => {
 		playRef.current = isPlay;
@@ -153,8 +153,10 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 			return
 		}
 		const isSchedulePlaying = data.isSchedulePlaying
+		setSchedulePlaying(isSchedulePlaying);
 		setRoomActive(true);
 		setAutoDj(true);
+		
 
 		console.log('auto dj', data);
 
@@ -422,12 +424,15 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 		socketRef.current.on('play-welcome-tone', (data) => {
 			const isSheduled = data.isSheduled;
-
+			setSchedulePlaying(isSheduled);
 
 
 			if (data?.welcomeTone) {
 				console.log('welcome tone started')
 				const song = new Audio(`${REACT_PUBLIC_SOCKET_URL}${data?.welcomeTone}`);
+				if(!isSheduled){
+					song.volume = 0.3;
+				}
 
 				song.addEventListener("canplaythrough", () => {
 					console.log("Audio loaded successfully");
@@ -438,7 +443,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					}
 					song.play().then(() => {
 						console.log("Audio started playing");
-						setIsTonePlayingMessage("Welcome Toe")
+						setIsTonePlayingMessage("Welcome Tone Playing")
 					}).catch((error) => {
 						console.error("Error playing audio:", error);
 					});
@@ -478,7 +483,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 						audioRef.current.pause();
 					}
 					song.play().then(() => {
-						setIsTonePlayingMessage("Ending Tone")
+						setIsTonePlayingMessage("Ending Tone Playing")
 						console.log("Audio started playing");
 					}).catch((error) => {
 						console.error("Error playing audio:", error);
@@ -647,7 +652,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 
 
-	return { IsTonePlayingMessage, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
+	return { IsTonePlayingMessage,schedulePlaying, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
 }
 
 export default useSocket;
