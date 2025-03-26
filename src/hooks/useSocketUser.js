@@ -441,30 +441,33 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					if (!isLiveRef.current) {
 						audioRef.current.pause();
 					}
+					//load song
+					setTimeout(() => {
+						if (isSheduled) {
+							console.log("Prepare Schedule");
+							if (audioRef.current.srcObject) {
+								audioRef.current.srcObject = null;
+								audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
+								audioRef.current.load();
+							};
+	
+							if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`) {
+								audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
+								audioRef.current.load();
+							}
+						}
+					},(song.duration - 8) * 1000)
+
 					song.play().then(() => {
 						console.log("Audio started playing");
-						setIsTonePlayingMessage("Welcome Tone Playing")
+						setIsTonePlayingMessage("Welcome Tone Playing");
+
 					}).catch((error) => {
 						console.error("Error playing audio:", error);
 					});
 				});
 				song.addEventListener("ended", () => {
 					setIsTonePlayingMessage(null)
-
-					if (isSheduled) {
-						console.log("Is Scheduled");
-						if (audioRef.current.srcObject) {
-							audioRef.current.srcObject = null;
-							audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
-							audioRef.current.load();
-						};
-
-						if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`) {
-							audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
-							audioRef.current.load();
-						}
-					}
-
 					audioRef.current.play();
 					console.log("Audio has finished playing");
 				});
@@ -478,10 +481,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 				song.addEventListener("canplaythrough", () => {
 					console.log("Audio loaded successfully");
-
-					if (!isLiveRef.current) {
-						audioRef.current.pause();
-					}
+					audioRef.current.pause();
 					song.play().then(() => {
 						setIsTonePlayingMessage("Ending Tone Playing")
 						console.log("Audio started playing");
