@@ -35,6 +35,7 @@ const sleep = ms => new Promise(r => window.setTimeout(r, ms))
 
 
 const peerConfig = {
+	iceTransportPolicy : "relay",
 	iceServers: [
 		{ urls: "stun:stun.l.google.com:19302" },
 		{ urls: "stun:stun.l.google.com:5349" },
@@ -70,6 +71,11 @@ const peerConfig = {
 			urls: "turns:global.relay.metered.ca:443?transport=tcp",
 			username: "827d3072e5b2f0e84207f45a",
 			credential: "wmxXXuDm8VSalqWu",
+		},
+		{
+			urls: "turns:relay1.expressturn.com:3478",
+			username: "efZL51SQ640A85CEFE",
+			credential: "QWATvGdKMEWFRCgg",
 		},
 	]
 }
@@ -194,12 +200,12 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 
 
-		cuurentTimeRef.current = data?.currentSong?.currentTime;
-		setNextSong(data?.currentSong.nextSong);
+		cuurentTimeRef.current = data?.currentSong?.currentTime || "Alright";
+		setNextSong(data?.currentSong?.nextSong || "Favor");
 		setcurrentSong(data?.currentSong.currentSong);
 		addToLocalStorage(data?.currentSong.currentSong);
 
-
+		
 		console.log('isPlay', playRef.current)
 		// if(playRef.current){
 		// 	console.log('pausing....')
