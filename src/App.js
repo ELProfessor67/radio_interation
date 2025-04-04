@@ -186,7 +186,7 @@ export default function App() {
 	const downloadLink = useRef();
 
 	// console.log('isPlay from components side', isPlay)
-	const {schedulePlaying, IsTonePlayingMessage, roomActive, handleRequestSong, isLive, autodj, messageList, handleSendMessage, callAdmin, cutCall, nextSong, currentSong } = useSocketUser(params.streamId, audioRef, name, isPlay, setIsPlay, message, setMessage, setCallStatus, location);
+	const {schedulePlaying, IsTonePlayingMessage, roomActive, handleRequestSong, isLive, autodj, messageList, handleSendMessage, callAdmin, cutCall, nextSong, currentSong,disabledPlatBtn } = useSocketUser(params.streamId, audioRef, name, isPlay, setIsPlay, message, setMessage, setCallStatus, location);
 	// const [more,setMore] = useState(false);
 	const [rOpen, setROPen] = useState(false);
 	console.log(roomActive)
@@ -372,7 +372,7 @@ export default function App() {
 												<audio ref={audioRef} controls className="w-full bg-none hidden" onEnded={() => handleEnded(isPlay)} onPlay={() => setIsPlay(true)} autoPlay onPause={() => setIsPlay(false)}></audio>
 												<div className='flex gap-4 items-center'>
 													<button className=" border-none outline-none text-white disabled:cursor-[not-allowed]  cursor-pointer disabled:opacity-25 mr-2" disabled={!isLive} title="Call" onClick={handleCall}><MdCall size={35} /></button>
-													<button className="disabled:opacity-20 p-2 rounded-full border-none outline-none text-white" disabled={!roomActive} onClick={handlePlay}>
+													<button className="disabled:opacity-20 p-2 rounded-full border-none outline-none text-white" disabled={!roomActive || disabledPlatBtn} onClick={handlePlay}>
 														{
 															isPlay ? <IoPauseOutline size={35} /> : <IoPlayOutline size={35} />
 														}

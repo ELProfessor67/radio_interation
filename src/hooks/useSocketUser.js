@@ -118,6 +118,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 	const [messageList, setMessageList] = useState([]);
 	const [nextSong, setNextSong] = useState({});
 	const [currentSong, setcurrentSong] = useState({});
+	const [disabledPlatBtn,setDisabledPlayBtn] = useState(false);
 
 	const cuurentTimeRef = useRef();
 	const playRef = useRef();
@@ -465,6 +466,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					},(song.duration - 8) * 1000)
 
 					song.play().then(() => {
+						setDisabledPlayBtn(true)
 						console.log("Audio started playing");
 						setIsTonePlayingMessage("Welcome Tone Playing");
 
@@ -473,6 +475,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					});
 				});
 				song.addEventListener("ended", () => {
+					setDisabledPlayBtn(false)
 					setIsTonePlayingMessage(null)
 					audioRef.current.play();
 					console.log("Audio has finished playing");
@@ -489,6 +492,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					console.log("Audio loaded successfully");
 					audioRef.current.pause();
 					song.play().then(() => {
+						setDisabledPlayBtn(true)
 						setIsTonePlayingMessage("Ending Tone Playing")
 						console.log("Audio started playing");
 					}).catch((error) => {
@@ -498,6 +502,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 				});
 
 				song.addEventListener("ended", () => {
+					setDisabledPlayBtn(false);
 					setIsTonePlayingMessage(null)
 					window.location.reload();
 				});
@@ -658,7 +663,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 
 
-	return { IsTonePlayingMessage,schedulePlaying, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
+	return {disabledPlatBtn, IsTonePlayingMessage,schedulePlaying, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
 }
 
 export default useSocket;
