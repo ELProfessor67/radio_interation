@@ -468,7 +468,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					song.play().then(() => {
 						setDisabledPlayBtn(true)
 						console.log("Audio started playing");
-						setIsTonePlayingMessage("Welcome Tone Playing");
+						setIsTonePlayingMessage("Welcome Tone");
 
 					}).catch((error) => {
 						console.error("Error playing audio:", error);
@@ -493,7 +493,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					audioRef.current.pause();
 					song.play().then(() => {
 						setDisabledPlayBtn(true)
-						setIsTonePlayingMessage("Ending Tone Playing")
+						setIsTonePlayingMessage("Ending Tone")
 						console.log("Audio started playing");
 					}).catch((error) => {
 						console.error("Error playing audio:", error);
