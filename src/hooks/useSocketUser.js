@@ -35,7 +35,7 @@ const sleep = ms => new Promise(r => window.setTimeout(r, ms))
 
 
 const peerConfig = {
-	iceTransportPolicy : "relay",
+	iceTransportPolicy: "relay",
 	iceServers: [
 		{ urls: "stun:stun.l.google.com:19302" },
 		{ urls: "stun:stun.l.google.com:5349" },
@@ -118,7 +118,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 	const [messageList, setMessageList] = useState([]);
 	const [nextSong, setNextSong] = useState({});
 	const [currentSong, setcurrentSong] = useState({});
-	const [disabledPlatBtn,setDisabledPlayBtn] = useState(false);
+	const [disabledPlatBtn, setDisabledPlayBtn] = useState(false);
 
 	const cuurentTimeRef = useRef();
 	const playRef = useRef();
@@ -163,7 +163,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 		setSchedulePlaying(isSchedulePlaying);
 		setRoomActive(true);
 		setAutoDj(true);
-		
+
 
 		console.log('auto dj', data);
 
@@ -206,7 +206,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 		setcurrentSong(data?.currentSong.currentSong);
 		addToLocalStorage(data?.currentSong.currentSong);
 
-		
+
 		console.log('isPlay', playRef.current)
 		// if(playRef.current){
 		// 	console.log('pausing....')
@@ -437,7 +437,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 			if (data?.welcomeTone) {
 				console.log('welcome tone started')
 				const song = new Audio(`${REACT_PUBLIC_SOCKET_URL}${data?.welcomeTone}`);
-				if(!isSheduled){
+				if (!isSheduled) {
 					song.volume = 0.3;
 				}
 
@@ -457,13 +457,13 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 								audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
 								audioRef.current.load();
 							};
-	
+
 							if (audioRef.current.src != `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`) {
 								audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}_schulded`;
 								audioRef.current.load();
 							}
 						}
-					},(song.duration - 8) * 1000)
+					}, (song.duration - 8) * 1000)
 
 					song.play().then(() => {
 						setDisabledPlayBtn(true)
@@ -487,10 +487,14 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 			if (data?.endingTone) {
 				console.log('ending tone started')
 				const song = new Audio(`${REACT_PUBLIC_SOCKET_URL}${data?.endingTone}`);
-
+				const volume = audioRef.current.volume
 				song.addEventListener("canplaythrough", () => {
 					console.log("Audio loaded successfully");
 					audioRef.current.pause();
+					audioRef.current.volume = 0;
+					audioRef.current.srcObject = null;
+					audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}`;
+					audioRef.current.load();
 					song.play().then(() => {
 						setDisabledPlayBtn(true)
 						setIsTonePlayingMessage("Ending Tone")
@@ -503,8 +507,15 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 				song.addEventListener("ended", () => {
 					setDisabledPlayBtn(false);
-					setIsTonePlayingMessage(null)
-					window.location.reload();
+					setIsTonePlayingMessage(null);
+					
+					
+					audioRef.current.volume = volume;
+					
+					audioRef.current.play();
+
+
+					// window.location.reload();
 				});
 			}
 		});
@@ -663,7 +674,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 
 
-	return {disabledPlatBtn, IsTonePlayingMessage,schedulePlaying, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
+	return { disabledPlatBtn, IsTonePlayingMessage, schedulePlaying, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
 }
 
 export default useSocket;
