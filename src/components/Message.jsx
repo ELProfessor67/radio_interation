@@ -7,7 +7,7 @@ const Message = ({ message, name, isOwner }) => {
       <div class="avatar">{name?.slice(0,2)?.toUpperCase()}</div>
       <div class="w-100">
         <div class="d-flex align-items-center">
-          <div class="fw-bold">{isOwner && <MdStarRate size={20} color='yellow'/>} {name}</div>
+          <div class="fw-bold text-gray-900">{isOwner && <MdStarRate size={20} color='yellow'/>} {name}</div>
           <div class="message-info">June 1 2024, 10:30 AM</div>
         </div>
         <div class="message-bubble">

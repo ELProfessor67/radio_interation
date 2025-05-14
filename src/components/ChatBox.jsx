@@ -5,7 +5,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 export default function ChatBox({ open, onClose, children, setName, name, message, setMessage, handleSendMessage }) {
     return (
       
-        <div className={`absolute top-0 left-0 right-0 bottom-0 z-10 bg-black/5 ${open ? '' : 'hidden'}`}>
+        <div className={`absolute top-0 left-0 right-0 bottom-0 z-[100000] bg-black/5 ${open ? '' : 'hidden'}`}>
             <div className="max-w-[40rem] mx-auto mt-32 min-h-[35rem] bg-white shadow-md p-3 px-3 rounded-md flex flex-col">
                 <div class="modal-dialog modal-lg modal-dialog-scrollable" style={{ display: "block", margin: 0 }}>
                     <div class="modal-content" >

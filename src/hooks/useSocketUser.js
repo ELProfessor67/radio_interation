@@ -490,11 +490,14 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 				const volume = audioRef.current.volume
 				song.addEventListener("canplaythrough", () => {
 					console.log("Audio loaded successfully");
-					audioRef.current.pause();
-					audioRef.current.volume = 0;
-					audioRef.current.srcObject = null;
-					audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}`;
-					audioRef.current.load();
+
+					if (!isLiveRef.current) {
+						audioRef.current.pause();
+						audioRef.current.volume = 0;
+
+					}
+
+					
 					song.play().then(() => {
 						setDisabledPlayBtn(true)
 						setIsTonePlayingMessage("Ending Tone")
@@ -509,11 +512,11 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 					setDisabledPlayBtn(false);
 					setIsTonePlayingMessage(null);
 					
-					
+					audioRef.current.srcObject = null;
+					audioRef.current.src = `${NEXT_PUBLIC_ICE_CAST_SERVER}/${streamId}`;
+					audioRef.current.load();
 					audioRef.current.volume = volume;
-					
 					audioRef.current.play();
-
 
 					// window.location.reload();
 				});
