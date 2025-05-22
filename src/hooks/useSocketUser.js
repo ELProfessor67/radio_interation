@@ -321,11 +321,11 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 			console.log(stream, "stream");
 
 			audioRef.current.srcObject = stream;
-			if (playRef.current == true) {
+			// if (playRef.current == true) {
 				audioRef.current.pause();
 				audioRef.current.play();
-			}
-
+			// }
+			console.log('Live Stream Playing...', playRef.current)
 			setRoomActive(true);
 			setIsLive(true);
 		}
