@@ -186,7 +186,7 @@ export default function App() {
 	const downloadLink = useRef();
 
 	// console.log('isPlay from components side', isPlay)
-	const { schedulePlaying, IsTonePlayingMessage, roomActive, handleRequestSong, isLive, autodj, messageList, handleSendMessage, callAdmin, cutCall, nextSong, currentSong, disabledPlatBtn } = useSocketUser(params.streamId, audioRef, name, isPlay, setIsPlay, message, setMessage, setCallStatus, location);
+	const {owner, schedulePlaying, IsTonePlayingMessage, roomActive, handleRequestSong, isLive, autodj, messageList, handleSendMessage, callAdmin, cutCall, nextSong, currentSong, disabledPlatBtn } = useSocketUser(params.streamId, audioRef, name, isPlay, setIsPlay, message, setMessage, setCallStatus, location);
 	// const [more,setMore] = useState(false);
 	const [rOpen, setROPen] = useState(false);
 	console.log(roomActive)
@@ -361,7 +361,7 @@ export default function App() {
 											IsTonePlayingMessage ?
 												<h4 className="title">{IsTonePlayingMessage}</h4>
 												:
-												<h4 className="title">{schedulePlaying ? `“Live Schedule”` : !isLive ? `“Auto DJ”` : `“${nextSong?.user?.name} Live”`}</h4>
+												<h4 className="title">{schedulePlaying ? `“Live Schedule”` : !isLive ? `“Auto DJ”` : `“${owner?.name} Live”`}</h4>
 										}
 										<p className="audio-time" style={{ fontSize: "12px", whiteSpace: 'pre' }}>Current song : {currentSong?.title?.split('.')[0]}</p>
 										{

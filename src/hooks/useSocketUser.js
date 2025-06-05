@@ -109,7 +109,7 @@ function addToLocalStorage(song) {
 const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMessage, setCallStatus, location) => {
 	const socketRef = useRef();
 	const peerRef = useRef({});
-	const [owner, setOwner] = useState('');
+	const [owner, setOwner] = useState({});
 	const ownerRef = useRef();
 	const [roomActive, setRoomActive] = useState(false);
 	const [scheduleActive, setScheduleActive] = useState(false);
@@ -588,7 +588,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 		socketRef.current.on('room-active-now', ({ user, nextSong, currentSong }) => {
 			// window.location.reload();
-			console.log("room active now")
+			console.log("room active now",user)
 			setOwner(user);
 			if (nextSong) {
 				setNextSong(nextSong)
@@ -677,7 +677,7 @@ const useSocket = (streamId, audioRef, name, isPlay, setIsPlay, message, setMess
 
 
 
-	return { disabledPlatBtn, IsTonePlayingMessage, schedulePlaying, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong }
+	return { disabledPlatBtn, IsTonePlayingMessage, schedulePlaying, socketRef, userJoin, roomActive, isLive, handleRequestSong, autodj, handleSendMessage, messageList, callAdmin, cutCall, nextSong, currentSong, owner }
 }
 
 export default useSocket;
